@@ -9,10 +9,26 @@ import pgeocode
 # For Dev only
 # pd.set_option('display.max_columns', None)
 
-def get_coordinates(country_code, postal_code):
-    nomi = pgeocode.Nominatim(country_code)
-    location = nomi.query_postal_code(postal_code)
-    return location.latitude, location.longitude
+def get_coordinates_from_address(address):
+    geocoder_base_url = "https://maps.googleapis.com/maps/api/geocode/json"
+    params = {
+        "address": address,
+        "key": PLACES_API_KEY
+    }
+    response = requests.get(geocoder_base_url, params=params)
+    data = response.json()
+    if data['status'] == 'OK':
+        lat = data['results'][0]['geometry']['location']['lat']
+        lng = data['results'][0]['geometry']['location']['lng']
+        return lat, lng
+    else:
+        return data['status']
+    
+
+# def get_coordinates(country_code, postal_code):
+#     nomi = pgeocode.Nominatim(country_code)
+#     location = nomi.query_postal_code(postal_code)
+#     return location.latitude, location.longitude
 
 def find_restaurants_near(lat, lng, query, radius):
     """Returns a list of restaurants withing the radius of the location which match the search query.
@@ -28,16 +44,19 @@ def find_restaurants_near(lat, lng, query, radius):
     """
     places_base_url = "https://maps.googleapis.com/maps/api/place/textsearch/json"
     params = {
-        'query': query,
-        'location': f'{lat},{lng}',
-        'radius': radius,
-        'type': 'restaurant',
-        'key': PLACES_API_KEY
+        "query": query,
+        "location": f'{lat},{lng}',
+        "radius": radius,
+        "type": "restaurant",
+        "key": PLACES_API_KEY
     }
     response = requests.get(places_base_url, params=params)
     data = response.json()
-    results = data['results']
-    return [(result["name"], result["formatted_address"], result["geometry"]["location"]["lat"], result["geometry"]["location"]["lng"]) for result in results]
+    if data['status'] == 'OK':
+        results = data['results']
+        return [(result["name"], result["formatted_address"], result["geometry"]["location"]["lat"], result["geometry"]["location"]["lng"]) for result in results]
+    else:
+        return data['status']
     
 def convert_locations_to_df(locations_list):
     """Convert a list of fast-food locations into a DataFram
@@ -129,15 +148,13 @@ def get_address(restaurant_name, restaurant_locations_df):
 
 def create_distance_and_location_column(meal_items_df, restaurant_locations_df):
     address_col = meal_items_df.apply(lambda df: get_address(df["restaurant"], restaurant_locations_df), axis=1).values.tolist()
-    print(address_col)
     distance_col = meal_items_df.apply(lambda df: get_distance(df["restaurant"], restaurant_locations_df), axis=1).values.tolist()
-    print(distance_col)
     return address_col, distance_col
 
 
-def get_cheat_meals(country_code='ca', postal_code='N1L 0B2', query='fast food', radius=5000, cheat_score_target=7.5):
+def get_cheat_meals(address="68 hall avenue guelph on", query='fast food', radius=5000, cheat_score_target=7.5):
     # Get the search area coordinates
-    lat, lng = get_coordinates(country_code, postal_code)
+    lat, lng = get_coordinates_from_address(address)
     
     # Get the locations from Places API
     restuarant_locations = find_restaurants_near(lat, lng, query, radius)
@@ -147,13 +164,24 @@ def get_cheat_meals(country_code='ca', postal_code='N1L 0B2', query='fast food',
     rest_locs_df = add_distance_to_df(rest_locs_df, lat, lng)
     rest_locs_df = keep_only_closest_location(rest_locs_df)
     rest_locs_df["Name"] = clean_restaurant_name(rest_locs_df)
-    # rest_locs_df.to_csv('test.csv')
+    print(rest_locs_df)
 
+    # Create the menu items df from nearby locations
     menu_items_df = get_restaurant_nutrition_data(rest_locs_df)
-    menu_items_df["cheat_score"] = create_cheat_score_column(menu_items_df)
 
+    # Add additional informationt to the menu items
+    menu_items_df["cheat_score"] = create_cheat_score_column(menu_items_df)
     rest_locs_df = remove_restaurants_without_meals(menu_items_df, rest_locs_df)
     menu_items_df["address"], menu_items_df["distance in km"] = create_distance_and_location_column(menu_items_df, rest_locs_df)
+
+    # Filter and sort based on target cheat score
+    mask1 = menu_items_df["cheat_score"] > (cheat_score_target - 1)
+    mask2 = menu_items_df["cheat_score"] < (cheat_score_target + 1)
+    cheat_meals_df = menu_items_df[mask1 & mask2]
+    cheat_meals_df["score_delta"] = abs(cheat_meals_df["cheat_score"] - cheat_score_target)
+    cheat_meals_df = cheat_meals_df.sort_values(by=["score_delta", "distance in km"]).reset_index(drop=True)
+
+    return cheat_meals_df
 
     
     
