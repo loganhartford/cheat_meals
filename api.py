@@ -94,6 +94,16 @@ def clean_restaurant_name(restaurant_locations_df):
     # remove appostrophes and set to lowercase
     return restaurant_locations_df.apply(lambda df: df["Name"].replace("'", "").lower(), axis=1)
 
+def create_locations_df(lat, lng, query, radius):
+    # Get the locations from Places API
+    restuarant_locations = find_restaurants_near(lat, lng, query, radius)
+
+    df = convert_locations_to_df(restuarant_locations)
+    df = add_distance_to_df(df, lat, lng)
+    df = keep_only_closest_location(df)
+    df["Name"] = clean_restaurant_name(df)
+    return df
+
 def get_restaurant_nutrition_data(restaurant_locations_df):
     restaurant_names = restaurant_locations_df["Name"].values.tolist()
     
@@ -151,20 +161,20 @@ def create_distance_and_location_column(meal_items_df, restaurant_locations_df):
     distance_col = meal_items_df.apply(lambda df: get_distance(df["restaurant"], restaurant_locations_df), axis=1).values.tolist()
     return address_col, distance_col
 
+def creat_cheat_meals_df(cheat_score_target, meal_items_df):
+    # Filter and sort based on target cheat score
+    mask1 = meal_items_df["cheat_score"] > (cheat_score_target - CHEAT_SCORE_RANGE)
+    mask2 = meal_items_df["cheat_score"] < (cheat_score_target + CHEAT_SCORE_RANGE)
+    df = meal_items_df[mask1 & mask2]
+    df["score_delta"] = abs(df["cheat_score"] - cheat_score_target)
+    return df.sort_values(by=["score_delta", "distance in km"]).reset_index(drop=True)
 
 def get_cheat_meals(address="68 hall avenue guelph on", query='fast food', radius=5000, cheat_score_target=7.5):
     # Get the search area coordinates
     lat, lng = get_coordinates_from_address(address)
     
-    # Get the locations from Places API
-    restuarant_locations = find_restaurants_near(lat, lng, query, radius)
-
     # Create the locations df
-    rest_locs_df = convert_locations_to_df(restuarant_locations)
-    rest_locs_df = add_distance_to_df(rest_locs_df, lat, lng)
-    rest_locs_df = keep_only_closest_location(rest_locs_df)
-    rest_locs_df["Name"] = clean_restaurant_name(rest_locs_df)
-    print(rest_locs_df)
+    rest_locs_df = create_locations_df(lat, lng, query, radius)
 
     # Create the menu items df from nearby locations
     menu_items_df = get_restaurant_nutrition_data(rest_locs_df)
@@ -174,22 +184,10 @@ def get_cheat_meals(address="68 hall avenue guelph on", query='fast food', radiu
     rest_locs_df = remove_restaurants_without_meals(menu_items_df, rest_locs_df)
     menu_items_df["address"], menu_items_df["distance in km"] = create_distance_and_location_column(menu_items_df, rest_locs_df)
 
-    # Filter and sort based on target cheat score
-    mask1 = menu_items_df["cheat_score"] > (cheat_score_target - 1)
-    mask2 = menu_items_df["cheat_score"] < (cheat_score_target + 1)
-    cheat_meals_df = menu_items_df[mask1 & mask2]
-    cheat_meals_df["score_delta"] = abs(cheat_meals_df["cheat_score"] - cheat_score_target)
-    cheat_meals_df = cheat_meals_df.sort_values(by=["score_delta", "distance in km"]).reset_index(drop=True)
+    cheat_meals_df = creat_cheat_meals_df(cheat_score_target, menu_items_df)
 
     return cheat_meals_df
-
-    
-    
-    
-    
 
 
 if __name__ == "__main__":
     get_cheat_meals()
-    # get_restaurant_nutrition_data()
-    # calculate_cheat_score(2500, 50, 4000, 50)
