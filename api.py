@@ -71,22 +71,21 @@ def add_distance_to_df(restaurant_locations_df, lat, lng):
 def keep_only_closest_location(restaurant_locations_df):
     return restaurant_locations_df.drop_duplicates(subset=["Name"], keep="first").reset_index(drop=True)
 
+def clean_restaurant_name(restaurant_locations_df):
+    # remove appostrophes and set to lowercase
+    return restaurant_locations_df.apply(lambda df: df["Name"].replace("'", "").lower(), axis=1)
+
 def get_restaurant_nutrition_data(restaurant_locations_df):
     restaurant_names = restaurant_locations_df["Name"].values.tolist()
-    # Remove apostrophes since they aren't used in the dataset
-    restaurant_names = [name.replace("'", "").lower() for name in restaurant_names]
     
     # Using a local dataset for now, will make a db later
     nutrition_df = pd.read_csv("fastfood.csv")
     meal_items_df = nutrition_df[nutrition_df["restaurant"].str.lower().isin(restaurant_names)]
+
     # Anything less than 500 cals is probably not a cheat meal
     meal_items_df = meal_items_df[meal_items_df["calories"] > 500]
-    return meal_items_df
-
-def create_cheat_score_column(meal_items_df)
-    # Calculate and add cheat score to the df
-    return meal_items_df.apply(lambda df: calculate_cheat_score(df["calories"], df["total_fat"], df["sodium"], df["sugar"]), axis=1)
-    
+    meal_items_df["restaurant"] = meal_items_df["restaurant"].str.lower()
+    return meal_items_df  
 
 def get_linear_constants(point1, point2):
     x1, y1 = point1
@@ -111,8 +110,32 @@ def calculate_cheat_score(total_cals, total_fat, sodium, sugar):
 
     return cheat_score
     
+def create_cheat_score_column(meal_items_df):
+    # Calculate and add cheat score to the df
+    return meal_items_df.apply(lambda df: calculate_cheat_score(df["calories"], df["total_fat"], df["sodium"], df["sugar"]), axis=1)
 
-def get_cheat_meals(country_code='ca', postal_code='N1L 0B2', query='fast food', radius=5000):
+def remove_restaurants_without_meals(meal_items_df, restaurant_locations_df):
+    restaurants = meal_items_df["restaurant"].unique()
+    return restaurant_locations_df[restaurant_locations_df["Name"].isin(restaurants)].reset_index(drop=True)
+
+def get_distance(restaurant_name, restaurant_locations_df):
+    df = restaurant_locations_df
+    return df.loc[df["Name"]==restaurant_name]["Distance in Km"].values[0]
+
+def get_address(restaurant_name, restaurant_locations_df):
+    df = restaurant_locations_df
+    return df.loc[df["Name"]==restaurant_name]["Address"].values[0]
+
+
+def create_distance_and_location_column(meal_items_df, restaurant_locations_df):
+    address_col = meal_items_df.apply(lambda df: get_address(df["restaurant"], restaurant_locations_df), axis=1).values.tolist()
+    print(address_col)
+    distance_col = meal_items_df.apply(lambda df: get_distance(df["restaurant"], restaurant_locations_df), axis=1).values.tolist()
+    print(distance_col)
+    return address_col, distance_col
+
+
+def get_cheat_meals(country_code='ca', postal_code='N1L 0B2', query='fast food', radius=5000, cheat_score_target=7.5):
     # Get the search area coordinates
     lat, lng = get_coordinates(country_code, postal_code)
     
@@ -123,11 +146,14 @@ def get_cheat_meals(country_code='ca', postal_code='N1L 0B2', query='fast food',
     rest_locs_df = convert_locations_to_df(restuarant_locations)
     rest_locs_df = add_distance_to_df(rest_locs_df, lat, lng)
     rest_locs_df = keep_only_closest_location(rest_locs_df)
+    rest_locs_df["Name"] = clean_restaurant_name(rest_locs_df)
     # rest_locs_df.to_csv('test.csv')
 
     menu_items_df = get_restaurant_nutrition_data(rest_locs_df)
     menu_items_df["cheat_score"] = create_cheat_score_column(menu_items_df)
 
+    rest_locs_df = remove_restaurants_without_meals(menu_items_df, rest_locs_df)
+    menu_items_df["address"], menu_items_df["distance in km"] = create_distance_and_location_column(menu_items_df, rest_locs_df)
 
     
     
