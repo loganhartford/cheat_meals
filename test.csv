@@ -1,21 +1,16 @@
-,Name,Address,Latitude,Longitude
-0,Chick-fil-A,"503 W Martin Luther King Jr Blvd, Austin, TX 78701",30.2817185,-97.7431593
-1,Raising Cane's Chicken Fingers,"2109 E Riverside Dr, Austin, TX 78741",30.2395739,-97.7269771
-2,Wendy's,"2224 E Riverside Dr, Austin, TX 78741",30.2388349,-97.725461
-3,Whataburger,"1616 E Oltorf St, Austin, TX 78741",30.23374,-97.7393158
-4,Jack in the Box,"1801 W Ben White Blvd, Austin, TX 78704",30.2283943,-97.7864675
-5,Dairy Queen,"1501 Town Creek Dr, Austin, TX 78741",30.2417939,-97.7267402
-6,Raising Cane's Chicken Fingers,"415 W Martin Luther King Jr Blvd, Austin, TX 78701",30.281561,-97.742508
-7,Wendy's,"201 E 21st St, Austin, TX 78705",30.2828274,-97.7371232
-8,Chick-fil-A 6th & Congress,"600 Congress Ave. C150, Austin, TX 78701",30.2684199,-97.7435943
-9,Wendy's,"1000 E 41st St, Austin, TX 78751",30.2985375,-97.71813150000001
-10,In-N-Out Burger,"4515 Airport Blvd, Austin, TX 78751",30.3042887,-97.7155513
-11,Sonic Drive-In,"1901 Montopolis Dr, Austin, TX 78741",30.2256456,-97.702578
-12,Jack in the Box,"1936 E Oltorf St, Austin, TX 78741",30.2313732,-97.7341457
-13,Jack in the Box,"1151 Airport Blvd, Austin, TX 78702",30.2741668,-97.69772259999999
-14,Wendy's,"619 N Interstate Hwy 35, Austin, TX 78702",30.2661945,-97.73362379999999
-15,Sonic Drive-In,"2632 S Lamar Blvd, Austin, TX 78704",30.2458161,-97.78008790000001
-16,Jack in the Box,"1000 E 41st St Unit K, Austin, TX 78751",30.2990521,-97.7201363
-17,Whataburger,"601 Barton Springs Rd, Austin, TX 78704",30.2580457,-97.7506968
-18,Chick-fil-A,"24th & Guadalupe Texas Union, Austin, TX 78713",30.2867479,-97.7412109
-19,Golden Chick,"1144 Airport Blvd, Austin, TX 78702",30.27224949999999,-97.6979458
+,Name,Address,Latitude,Longitude,Distance in Km
+0,South St. Burger,"190 Clair Rd E, Guelph, ON N1L 0G6",43.5014418,-80.1899107,1.619322183
+1,Harvey's,"99 Clair Rd E, Guelph, ON N1L 0J7",43.5012848,-80.1862511,1.664475167
+2,Five Guys,"20 Clair Rd W Unit 9, Guelph, ON N1L 0A8",43.4997042,-80.1893675,1.813297179
+3,Popeyes Louisiana Kitchen,"35 Harvard Rd Unit 14, Guelph, ON N1G 3A2",43.5248411,-80.2228603,2.826937524
+4,Tim Hortons Express,"Thornbrough Building, 80 South Ring Rd E, Guelph, ON N1G 1Y4",43.530569,-80.2244339,3.215385857
+5,Quiznos,"292 Stone Rd W Unit 3, Guelph, ON N1G 3C4",43.5189926,-80.2340484,3.568497539
+6,Wendy's,"292 Stone Rd W, Guelph, ON N1G 3C4",43.5188446,-80.2342285,3.581473804
+7,Dairy Queen Grill & Chill,"304 Stone Rd W Unit 4, Guelph, ON N1G 4W4",43.5184566,-80.2343532,3.587959831
+8,KFC,"Drew Hall, Guelph, ON N1G 2W1",43.5336417,-80.2287865,3.692666148
+9,McDonald's,"372 Stone Rd W, Guelph, ON N1G 4T8",43.5170291,-80.2365519,3.756676299
+10,A&W Canada,"Stone Road Mall, 435 Stone Rd W Unit # FC3, Guelph, ON N1G 2X6",43.518585,-80.238133,3.893047894
+11,Taco Bell,"FC4, 435 Stone Rd W, Guelph, ON N1G 2X6",43.5182747,-80.2387533,3.940590023
+12,Rocky's Drive-In,"520 Elizabeth St, Guelph, ON N1E 6C3",43.5561158,-80.2196979,5.0640549
+13,Philthy Philly's,"85 Macdonell St, Guelph, ON N1H 3A3",43.545058,-80.2471634,5.629991646
+14,Pita Pit,"65 Macdonell St, Guelph, ON N1H 2Z7",43.5448168,-80.2475714,5.641685222

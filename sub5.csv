@@ -1,256 +1,132 @@
-,restaurant,item,calories,total_fat,sat_fat,trans_fat,cholesterol,sodium,total_carb,fiber,sugar,protein,vit_a,vit_c,calcium,salad
-267,Dairy Queen,Original Cheeseburger,400.0,18.0,9.0,1.0,65.0,930.0,34.0,1.0,8.0,19.0,10.0,0.0,10.0,Other
-271,Dairy Queen,Bacon Cheese Dog,420.0,26.0,11.0,1.0,60.0,1140.0,26.0,1.0,3.0,19.0,,,,Other
-272,Dairy Queen,Cheese Dog,390.0,24.0,11.0,1.0,50.0,1000.0,26.0,1.0,3.0,16.0,,,,Other
-273,Dairy Queen,Chili Cheese Dog,380.0,24.0,11.0,1.0,55.0,900.0,23.0,1.0,3.0,16.0,10.0,0.0,15.0,Other
-274,Dairy Queen,Chili Dog,330.0,20.0,8.0,1.0,40.0,1050.0,24.0,1.0,5.0,13.0,8.0,0.0,6.0,Other
-275,Dairy Queen,Hot Dog,290.0,17.0,7.0,1.0,35.0,900.0,22.0,1.0,4.0,11.0,4.0,0.0,6.0,Other
-276,Dairy Queen,Relish Dog,350.0,20.0,8.0,1.0,35.0,1000.0,30.0,1.0,6.0,13.0,,,,Other
-277,Dairy Queen,Barbecue Pork Sandwich,310.0,9.0,3.0,0.0,50.0,830.0,41.0,2.0,9.0,17.0,10.0,4.0,4.0,Other
-278,Dairy Queen,Breaded Mushrooms,250.0,9.0,1.0,0.0,0.0,500.0,36.0,2.0,1.0,7.0,0.0,2.0,2.0,Other
-282,Dairy Queen,Corn Dog,260.0,15.0,4.0,0.0,20.0,450.0,26.0,1.0,7.0,6.0,0.0,4.0,0.0,Other
-283,Dairy Queen,Crispy Fish Sandwich,470.0,22.0,3.0,0.0,20.0,1210.0,53.0,2.0,7.0,17.0,10.0,2.0,6.0,Other
-284,Dairy Queen,Deluxe Cheeseburger,400.0,18.0,9.0,1.0,65.0,930.0,35.0,1.0,9.0,20.0,20.0,6.0,10.0,Other
-287,Dairy Queen,Deluxe Hamburger,350.0,14.0,7.0,1.0,50.0,680.0,34.0,1.0,9.0,17.0,15.0,6.0,4.0,Other
-291,Dairy Queen,3 chicken strips Chicken Strips,350.0,20.0,3.0,0.0,60.0,960.0,22.0,10.0,0.0,22.0,,,,Other
-295,Dairy Queen,Crispy Chicken Garden Greens Salad,280.0,13.0,2.0,0.0,40.0,670.0,24.0,9.0,6.0,17.0,,,,Other
-297,Dairy Queen,Crispy Chicken Wrap,350.0,21.0,5.0,0.0,35.0,820.0,30.0,2.0,1.0,12.0,10.0,2.0,10.0,Other
-298,Dairy Queen,Grilled Chicken BLT Salad,380.0,19.0,9.0,0.0,100.0,1540.0,11.0,3.0,6.0,42.0,,,,Other
-299,Dairy Queen,Grilled Chicken Garden Greens Salad,150.0,2.0,0.5,0.0,40.0,730.0,10.0,3.0,6.0,23.0,,,,Other
-300,Dairy Queen,Grilled Chicken Sandwich,360.0,15.0,3.0,0.0,50.0,1040.0,32.0,1.0,5.0,25.0,10.0,8.0,6.0,Other
-301,Dairy Queen,Grilled Chicken Wrap,280.0,15.0,4.0,0.0,30.0,800.0,22.0,1.0,1.0,15.0,10.0,4.0,10.0,Other
-302,Dairy Queen,Side Salad,20.0,0.0,0.0,0.0,0.0,15.0,5.0,2.0,3.0,1.0,50.0,30.0,15.0,Other
-304,Subway,"6"" B.L.T.",320.0,9.0,4.0,0.0,20.0,680.0,43.0,5.0,6.0,15.0,8.0,8.0,30.0,Other
-306,Subway,"6"" BBQ Rib Sandwich",430.0,18.0,6.0,0.0,50.0,590.0,47.0,5.0,8.0,19.0,8.0,20.0,30.0,Other
-312,Subway,Kids Mini Sub Black Forest Ham,180.0,3.0,0.5,0.0,10.0,450.0,30.0,3.0,5.0,10.0,6.0,15.0,20.0,Other
-313,Subway,"6"" Black Forest Ham",290.0,5.0,1.0,0.0,20.0,830.0,46.0,5.0,8.0,18.0,8.0,20.0,30.0,Other
-315,Subway,"6"" Carved Turkey",330.0,5.0,1.0,0.0,45.0,890.0,45.0,5.0,7.0,25.0,8.0,20.0,30.0,Other
-321,Subway,"6"" Chicken Pizziola Melt",460.0,16.0,6.0,0.0,80.0,1140.0,49.0,6.0,9.0,32.0,15.0,30.0,45.0,Other
-323,Subway,"6"" Cold Cut Combo",370.0,13.0,4.0,0.0,50.0,1140.0,46.0,5.0,7.0,18.0,10.0,20.0,35.0,Other
-325,Subway,"6"" Corned Beef Reuben",470.0,15.0,4.5,0.0,85.0,1770.0,45.0,7.0,12.0,39.0,10.0,35.0,20.0,Other
-327,Subway,"6"" Italian B.M.T.",410.0,16.0,6.0,0.0,45.0,1300.0,46.0,5.0,8.0,20.0,8.0,20.0,30.0,Other
-331,Subway,"6"" Meatball Marinara",480.0,18.0,7.0,1.0,30.0,950.0,59.0,8.0,12.0,21.0,25.0,35.0,35.0,Other
-333,Subway,"6"" Oven Roasted Chicken",320.0,5.0,2.0,0.0,25.0,640.0,47.0,5.0,8.0,23.0,8.0,30.0,30.0,Other
-335,Subway,Kids Mini Sub Roast Beef,200.0,3.0,1.0,0.0,25.0,390.0,30.0,4.0,5.0,14.0,6.0,15.0,20.0,Other
-336,Subway,"6"" Roast Beef",320.0,5.0,2.0,0.0,40.0,700.0,45.0,5.0,7.0,24.0,8.0,20.0,30.0,Other
-338,Subway,"6"" Rotisserie Style Chicken",350.0,6.0,1.5,0.0,50.0,540.0,44.0,5.0,7.0,29.0,8.0,20.0,30.0,Other
-340,Subway,"6"" Spicy Italian",480.0,24.0,9.0,1.0,50.0,1520.0,46.0,5.0,8.0,20.0,8.0,20.0,30.0,Other
-342,Subway,"6"" Steak and Cheese",380.0,10.0,5.0,0.0,50.0,1060.0,48.0,5.0,8.0,26.0,10.0,20.0,40.0,Other
-344,Subway,"6"" Subway Club",310.0,5.0,2.0,0.0,40.0,880.0,46.0,5.0,7.0,23.0,8.0,20.0,30.0,Other
-346,Subway,"6"" Subway Melt (includes cheese)",370.0,11.0,5.0,0.0,45.0,1210.0,47.0,5.0,8.0,23.0,10.0,20.0,40.0,Other
-348,Subway,"6"" Subway Seafood Sensation",420.0,19.0,3.0,0.0,20.0,690.0,51.0,5.0,8.0,13.0,10.0,20.0,35.0,Other
-350,Subway,"6"" Sweet Onion Chicken Teriyaki",380.0,5.0,1.0,0.0,50.0,900.0,59.0,5.0,18.0,26.0,8.0,30.0,35.0,Other
-352,Subway,"6"" Tuna",470.0,24.0,4.0,0.0,30.0,620.0,44.0,5.0,6.0,20.0,8.0,20.0,30.0,Other
-354,Subway,"6"" Turkey & Bacon Avocado",390.0,13.0,3.5,0.0,30.0,860.0,49.0,8.0,7.0,22.0,10.0,200.0,30.0,Other
-356,Subway,Kids Mini Sub Turkey Breast,180.0,2.0,0.5,0.0,10.0,380.0,30.0,3.0,5.0,10.0,6.0,15.0,20.0,Other
-357,Subway,"6"" Turkey Breast",280.0,4.0,1.0,0.0,20.0,810.0,46.0,5.0,7.0,18.0,8.0,20.0,30.0,Other
-359,Subway,"6"" Turkey Breast & Ham",280.0,4.0,1.0,0.0,20.0,820.0,46.0,5.0,8.0,18.0,8.0,20.0,30.0,Other
-361,Subway,"6"" Turkey Italiano Melt (with Provolone)",490.0,24.0,9.0,1.0,50.0,1480.0,47.0,5.0,8.0,24.0,10.0,20.0,45.0,Other
-363,Subway,Kids Mini Sub Veggie Delite,150.0,2.0,0.0,0.0,0.0,190.0,29.0,3.0,4.0,6.0,6.0,15.0,20.0,Other
-364,Subway,"6"" Veggie Delite",230.0,3.0,1.0,0.0,0.0,310.0,44.0,5.0,6.0,8.0,8.0,20.0,30.0,Other
-365,Subway,Footlong Veggie Delite,460.0,6.0,2.0,0.0,0.0,620.0,88.0,10.0,12.0,16.0,16.0,40.0,60.0,Other
-366,Subway,"6"" Veggie Patty",390.0,7.0,1.0,0.0,10.0,800.0,56.0,8.0,8.0,23.0,15.0,20.0,35.0,Other
-368,Subway,Autumn Carved Turkey Salad,300.0,9.0,3.0,0.0,60.0,1120.0,26.0,3.0,22.0,25.0,40.0,40.0,15.0,Other
-369,Subway,B.L.T. Salad,150.0,8.0,4.0,0.0,20.0,420.0,10.0,4.0,5.0,10.0,50.0,50.0,6.0,Other
-370,Subway,Big Hot Pastrami Melt Salad,400.0,29.0,11.0,0.0,85.0,1250.0,12.0,4.0,4.0,23.0,25.0,70.0,10.0,Other
-371,Subway,Big Philly Cheesesteak Salad,330.0,16.0,8.0,1.0,85.0,1080.0,17.0,5.0,6.0,32.0,60.0,50.0,25.0,Other
-372,Subway,Black Forest Ham Salad,110.0,3.0,1.0,0.0,20.0,590.0,11.0,4.0,6.0,12.0,25.0,45.0,4.0,Other
-373,Subway,Buffalo Chicken Salad (with Ranch dressing),360.0,26.0,4.0,0.0,60.0,1100.0,13.0,4.0,6.0,20.0,50.0,60.0,8.0,Other
-374,Subway,Carved Turkey & Bacon w/ Cheese Salad,280.0,12.0,4.5,0.0,65.0,1320.0,11.0,4.0,5.0,28.0,50.0,50.0,15.0,Other
-375,Subway,Carved Turkey Salad,150.0,4.0,0.0,0.0,45.0,680.0,8.0,3.0,3.0,19.0,40.0,40.0,6.0,Other
-377,Subway,Cold Cut Combo Salad,180.0,11.0,4.0,0.0,45.0,820.0,12.0,4.0,5.0,12.0,50.0,50.0,10.0,Other
-378,Subway,Double Chicken Salad,220.0,5.0,1.5,0.0,100.0,490.0,10.0,4.0,4.0,36.0,50.0,60.0,8.0,Other
-379,Subway,Italian B.M.T.® Salad,230.0,15.0,6.0,0.0,45.0,1060.0,12.0,4.0,6.0,14.0,50.0,50.0,6.0,Other
-380,Subway,Italian Hero Salad,230.0,15.0,5.0,0.0,45.0,1060.0,13.0,4.0,8.0,14.0,40.0,60.0,4.0,Other
-381,Subway,Meatball Marinara Salad,310.0,17.0,7.0,1.0,30.0,720.0,25.0,6.0,10.0,16.0,60.0,70.0,10.0,Other
-382,Subway,Oven Roasted Chicken Salad,140.0,3.0,0.5,0.0,50.0,280.0,10.0,4.0,4.0,19.0,50.0,60.0,8.0,Other
-383,Subway,Roast Beef Salad,140.0,4.0,1.0,0.0,40.0,450.0,10.0,4.0,5.0,18.0,25.0,45.0,4.0,Other
-384,Subway,Spicy Italian Salad,310.0,23.0,9.0,1.0,50.0,1280.0,11.0,4.0,6.0,15.0,50.0,50.0,8.0,Other
-385,Subway,Steak & Cheese Salad,210.0,8.0,4.0,0.0,50.0,830.0,14.0,4.0,6.0,20.0,50.0,50.0,15.0,Other
-386,Subway,Subway Club Salad,140.0,4.0,1.0,0.0,40.0,640.0,11.0,4.0,5.0,17.0,25.0,45.0,6.0,Other
-387,Subway,Subway Melt® Salad,200.0,10.0,5.0,0.0,45.0,910.0,13.0,4.0,6.0,18.0,50.0,50.0,15.0,Other
-388,Subway,Sweet Onion Chicken Teriyaki Salad,200.0,3.0,1.0,0.0,50.0,660.0,24.0,4.0,16.0,20.0,25.0,50.0,6.0,Other
-389,Subway,Tuna Salad,310.0,24.0,4.0,0.0,40.0,370.0,10.0,4.0,4.0,15.0,50.0,50.0,6.0,Other
-390,Subway,Turkey Breast & Ham Salad,110.0,3.0,1.0,0.0,25.0,580.0,11.0,4.0,5.0,12.0,25.0,45.0,6.0,Other
-391,Subway,Turkey Breast Salad,110.0,2.0,1.0,0.0,20.0,570.0,11.0,4.0,5.0,12.0,25.0,45.0,6.0,Other
-392,Subway,Veggie Delite Salad,50.0,1.0,0.0,0.0,0.0,65.0,9.0,4.0,4.0,3.0,25.0,45.0,4.0,Other
-401,Taco Bell,1/2 lb.* Combo Burrito,460.0,18.0,7.0,1.0,45.0,1320.0,53.0,9.0,3.0,21.0,,,,Other
-403,Taco Bell,Bean Burrito,370.0,11.0,4.0,0.0,5.0,960.0,56.0,9.0,3.0,13.0,,,,Other
-405,Taco Bell,Beefy Fritos® Burrito,440.0,18.0,5.0,0.0,20.0,1030.0,55.0,4.0,3.0,13.0,,,,Other
-406,Taco Bell,Black Bean Burrito,410.0,12.0,4.0,0.0,10.0,1100.0,62.0,8.0,3.0,14.0,,,,Other
-407,Taco Bell,Burrito Supreme® – Beef,420.0,16.0,7.0,0.0,35.0,1090.0,53.0,8.0,5.0,16.0,,,,Other
-408,Taco Bell,Burrito Supreme® - Chicken,390.0,12.0,5.0,0.0,40.0,1050.0,52.0,7.0,5.0,19.0,,,,Other
-409,Taco Bell,Burrito Supreme® - Steak,390.0,13.0,5.0,0.0,30.0,1090.0,52.0,7.0,5.0,17.0,,,,Other
-413,Taco Bell,Cheesy Bean and Rice Burrito,420.0,17.0,3.5,0.0,0.0,930.0,55.0,6.0,4.0,11.0,,,,Other
-414,Taco Bell,Chili Cheese Burrito,380.0,17.0,8.0,1.0,35.0,930.0,41.0,5.0,2.0,16.0,,,,Other
-422,Taco Bell,Shredded Chicken Burrito,400.0,18.0,4.5,0.0,30.0,960.0,45.0,3.0,3.0,16.0,,,,Other
-429,Taco Bell,Triple Melt Burrito,410.0,16.0,6.0,0.0,30.0,1030.0,50.0,4.0,3.0,15.0,6.0,2.0,20.0,Other
-433,Taco Bell,Chicken Soft Taco,170.0,6.0,3.0,0.0,30.0,460.0,18.0,1.0,1.0,12.0,,,,Other
-434,Taco Bell,Cool Ranch® Doritos® Double Decker® Taco,320.0,14.0,5.0,0.0,25.0,770.0,36.0,6.0,2.0,13.0,,,,Other
-435,Taco Bell,Cool Ranch® Doritos® Locos Taco,160.0,10.0,3.5,0.0,25.0,350.0,13.0,2.0,1.0,8.0,,,,Other
-436,Taco Bell,Cool Ranch® Doritos® Locos Taco Supreme,200.0,12.0,4.5,0.0,35.0,370.0,15.0,3.0,3.0,9.0,,,,Other
-437,Taco Bell,Crunchy Taco,170.0,10.0,4.0,0.0,25.0,290.0,12.0,3.0,1.0,8.0,,,,Other
-438,Taco Bell,Crunchy Taco Supreme®,200.0,12.0,5.0,0.0,35.0,320.0,15.0,3.0,2.0,9.0,,,,Other
-439,Taco Bell,Double Decker® Taco,320.0,14.0,5.0,0.0,25.0,640.0,37.0,7.0,2.0,13.0,,,,Other
-440,Taco Bell,DOUBLE DECKER® Taco Supreme®,350.0,16.0,6.0,0.0,35.0,670.0,40.0,7.0,3.0,14.0,,,,Other
-441,Taco Bell,Spicy Sweet Double Stacked Taco,340.0,18.0,7.0,0.0,35.0,640.0,32.0,4.0,6.0,12.0,10.0,2.0,15.0,Other
-442,Taco Bell,Cool Ranch Habanero Double Stacked Taco,350.0,20.0,8.0,0.5,40.0,630.0,30.0,4.0,3.0,13.0,15.0,2.0,20.0,Other
-443,Taco Bell,Nacho Crunch Double Stacked Taco,380.0,19.0,6.0,0.0,35.0,650.0,39.0,5.0,2.0,13.0,8.0,2.0,20.0,Other
-444,Taco Bell,Fiery Doritos® Double Decker® Taco,320.0,13.0,5.0,0.0,25.0,770.0,36.0,7.0,2.0,14.0,,,,Other
-445,Taco Bell,Fiery Doritos® Locos Taco,170.0,10.0,3.5,0.0,25.0,370.0,12.0,3.0,1.0,8.0,,,,Other
-446,Taco Bell,Fiery Doritos® Locos Taco Supreme,200.0,12.0,5.0,0.0,30.0,390.0,15.0,3.0,2.0,9.0,,,,Other
-447,Taco Bell,Grilled Steak Soft Taco,250.0,14.0,4.0,0.0,30.0,550.0,19.0,2.0,2.0,11.0,,,,Other
-448,Taco Bell,Nacho Cheese Doritos® Double Decker® Taco,320.0,13.0,5.0,0.0,25.0,760.0,36.0,7.0,2.0,14.0,,,,Other
-449,Taco Bell,Nacho Cheese Doritos® Locos Tacos,170.0,9.0,4.0,0.0,25.0,340.0,13.0,2.0,1.0,8.0,,,,Other
-450,Taco Bell,Nacho Cheese Doritos® Locos Tacos Supreme,200.0,11.0,5.0,0.0,35.0,370.0,15.0,3.0,2.0,9.0,,,,Other
-451,Taco Bell,Soft Taco Supreme® – Beef,230.0,11.0,5.0,0.0,35.0,530.0,22.0,3.0,3.0,10.0,,,,Other
-452,Taco Bell,Soft Taco-Beef,200.0,9.0,4.0,0.0,25.0,510.0,19.0,3.0,1.0,10.0,,,,Other
-453,Taco Bell,Spicy Potato Soft Taco,250.0,13.0,3.0,0.0,10.0,510.0,28.0,3.0,1.0,6.0,,,,Other
-454,Taco Bell,Chalupa Supreme® - Chicken,340.0,18.0,4.0,0.0,40.0,530.0,29.0,3.0,4.0,16.0,,,,Other
-455,Taco Bell,Chalupa Supreme® - Steak,340.0,18.0,4.0,0.0,30.0,570.0,29.0,3.0,4.0,14.0,,,,Other
-456,Taco Bell,Chalupa Supreme®–Beef,370.0,21.0,5.0,0.0,30.0,570.0,31.0,4.0,4.0,13.0,,,,Other
-458,Taco Bell,Wild Naked Chicken Chalupa,420.0,28.0,6.0,0.0,65.0,1070.0,23.0,4.0,2.0,19.0,6.0,4.0,6.0,Other
-459,Taco Bell,Mild Naked Chicken Chalupa,440.0,30.0,7.0,0.0,70.0,1090.0,22.0,3.0,1.0,20.0,6.0,4.0,6.0,Other
-461,Taco Bell,Fresco Bean Burrito,350.0,9.0,3.0,0.0,0.0,950.0,57.0,9.0,3.0,11.0,,,,Other
-462,Taco Bell,Fresco Burrito Supreme® – Chicken,340.0,8.0,3.0,0.0,25.0,1020.0,50.0,7.0,4.0,17.0,,,,Other
-463,Taco Bell,Fresco Burrito Supreme® – Steak,340.0,9.0,3.0,0.0,15.0,1060.0,50.0,7.0,4.0,15.0,,,,Other
-464,Taco Bell,Fresco Chicken Soft Taco,150.0,4.0,1.0,0.0,25.0,460.0,18.0,2.0,2.0,11.0,,,,Other
-465,Taco Bell,Fresco Crunchy Taco,140.0,8.0,2.0,0.0,20.0,290.0,13.0,3.0,1.0,6.0,,,,Other
-466,Taco Bell,Fresco Grilled Steak Soft Taco,150.0,4.0,2.0,0.0,15.0,500.0,19.0,2.0,2.0,9.0,,,,Other
-467,Taco Bell,Fresco Soft Taco,170.0,7.0,3.0,0.0,20.0,500.0,20.0,3.0,2.0,8.0,,,,Other
-468,Taco Bell,Cheesy Gordita Crunch,490.0,29.0,10.0,1.0,55.0,810.0,39.0,5.0,6.0,20.0,,,,Other
-469,Taco Bell,Doritos® Cheesy Gordita Crunch - Cool Ranch,490.0,28.0,10.0,1.0,55.0,890.0,40.0,5.0,5.0,20.0,,,,Other
-470,Taco Bell,Doritos® Cheesy Gordita Crunch - Fiery,490.0,28.0,10.0,1.0,55.0,890.0,40.0,5.0,4.0,20.0,,,,Other
-471,Taco Bell,Doritos® Cheesy Gordita Crunch - Nacho Cheese,490.0,28.0,10.0,1.0,55.0,880.0,40.0,5.0,5.0,20.0,,,,Other
-473,Taco Bell,Gordita Supreme® – Beef,300.0,14.0,5.0,0.0,30.0,550.0,31.0,4.0,6.0,13.0,,,,Other
-474,Taco Bell,Gordita Supreme® - Chicken,270.0,10.0,4.0,0.0,40.0,510.0,29.0,2.0,6.0,16.0,,,,Other
-475,Taco Bell,Gordita Supreme® - Steak,270.0,11.0,4.0,0.0,30.0,550.0,29.0,2.0,6.0,14.0,,,,Other
-478,Taco Bell,Nachos Supreme,430.0,23.0,5.0,0.0,30.0,690.0,44.0,7.0,3.0,12.0,,,,Other
-479,Taco Bell,Triple Layer Nachos,320.0,15.0,1.5,0.0,0.0,600.0,41.0,6.0,2.0,7.0,,,,Other
-480,Taco Bell,Triple Melt Nachos,260.0,16.0,4.5,0.0,30.0,550.0,19.0,3.0,1.0,10.0,6.0,0.0,10.0,Other
-481,Taco Bell,Beefy Cheddar Crunchwrap Slider,410.0,19.0,6.0,0.0,25.0,960.0,46.0,4.0,3.0,14.0,,,,Other
-482,Taco Bell,Beefy Mini Quesadilla,210.0,12.0,4.0,0.0,25.0,560.0,17.0,3.0,1.0,9.0,,,,Other
-483,Taco Bell,Beefy Nacho Griller,420.0,19.0,4.5,0.0,20.0,870.0,49.0,5.0,3.0,12.0,,,,Other
-484,Taco Bell,BLT Crunchwrap Slider,430.0,23.0,5.0,0.0,20.0,900.0,43.0,3.0,4.0,12.0,,,,Other
-488,Taco Bell,Cheese Quesadilla,480.0,27.0,11.0,1.0,50.0,1000.0,40.0,4.0,3.0,19.0,,,,Other
-489,Taco Bell,Cheese Roll-Up,190.0,9.0,5.0,0.0,20.0,450.0,18.0,2.0,1.0,9.0,,,,Other
-492,Taco Bell,Chili Cheese Burrito,380.0,17.0,8.0,1.0,35.0,930.0,41.0,5.0,2.0,16.0,,,,Other
-493,Taco Bell,Chipotle Crispy Chicken Griller,290.0,18.0,3.0,0.0,25.0,640.0,22.0,1.0,1.0,9.0,,,,Other
-496,Taco Bell,Double Tostada,270.0,11.0,4.0,0.0,15.0,650.0,32.0,8.0,2.0,12.0,,,,Other
-498,Taco Bell,Loaded Potato Griller,470.0,22.0,6.0,0.0,25.0,1120.0,55.0,4.0,5.0,13.0,,,,Other
-500,Taco Bell,MexiMelt®,270.0,14.0,7.0,1.0,40.0,740.0,21.0,3.0,2.0,14.0,,,,Other
-501,Taco Bell,Steak Quesalupa,440.0,23.0,10.0,0.5,60.0,840.0,36.0,3.0,3.0,22.0,15.0,6.0,35.0,Other
-502,Taco Bell,Chicken Quesalupa,440.0,23.0,10.0,0.5,60.0,840.0,37.0,3.0,3.0,22.0,15.0,8.0,35.0,Other
-503,Taco Bell,Beef Quesalupa,460.0,26.0,11.0,1.0,50.0,890.0,38.0,4.0,3.0,19.0,15.0,6.0,35.0,Other
-504,Taco Bell,Shredded Chicken Mini Quesadilla,180.0,8.0,2.5,0.0,25.0,540.0,15.0,2.0,1.0,12.0,,,,Other
-505,Taco Bell,Spicy Chicken Crunchwrap Slider,400.0,20.0,4.0,0.0,25.0,900.0,42.0,3.0,3.0,15.0,,,,Other
-506,Taco Bell,Spicy Tostada,200.0,10.0,2.5,0.0,10.0,440.0,22.0,4.0,1.0,7.0,,,,Other
-507,Taco Bell,Stacker,390.0,18.0,8.0,0.5,40.0,1050.0,39.0,4.0,3.0,18.0,8.0,2.0,30.0,Other
-515,Pizza Hut,Corn n Cheese (Personal),432.6,10.93,5.14,0.16,16.19,499.72,65.64,3.85,0.0,17.91,,,,
-516,Pizza Hut,Country Feast (Personal),407.6,8.03,3.24,0.11,66.8,818.0,67.11,7.19,0.0,16.73,,,,
-517,Pizza Hut,Double Cheese (Personal),423.33,12.27,5.23,0.18,19.75,638.22,59.97,3.49,0.0,18.26,,,,
-518,Pizza Hut,Double Paneer Supreme (Personal),474.03,20.26,9.25,0.33,71.72,1128.11,52.86,3.79,0.0,20.07,,,,
-519,Pizza Hut,Farmer`s Pick (Personal),408.16,12.53,4.9,0.14,48.09,942.67,53.93,2.46,0.0,19.91,,,,
-520,Pizza Hut,Margherita (Personal),361.73,10.58,3.86,0.12,26.47,713.82,50.69,4.08,0.0,15.93,,,,
-521,Pizza Hut,Spiced Paneer (Personal),408.01,14.57,8.02,0.35,37.37,622.38,47.54,6.92,0.0,21.68,,,,
-522,Pizza Hut,Tandoori Onion (Personal),410.16,13.48,4.52,0.13,23.87,826.22,57.14,1.33,0.0,15.08,,,,
-524,Pizza Hut,Veg Exotica (Personal),363.05,9.77,3.92,0.12,23.96,640.46,55.12,4.28,0.0,13.66,,,,
-526,Pizza Hut,Veggie Feast (Personal),408.06,10.53,4.12,0.13,21.96,869.41,60.57,4.24,0.0,17.75,,,,
-527,Pizza Hut,Veggie Lover (Personal),411.72,12.94,5.32,0.17,19.29,564.98,56.6,3.66,0.0,17.2,,,,
-528,Pizza Hut,Veggie Supreme (Personal),426.59,14.42,5.52,0.16,32.43,591.1,55.39,4.43,0.0,17.75,,,,
-529,Pizza Hut,Veggie Tandoori (Personal),432.21,15.98,5.36,0.15,31.91,835.35,58.12,2.0,0.0,13.98,,,,
-532,Pizza Hut,Chicken n Corn Delight (Personal),421.56,12.11,5.11,0.15,50.96,916.52,57.38,5.84,0.0,20.75,,,,
-533,Pizza Hut,Chicken Pepper Crunch (Personal),447.43,17.76,7.45,0.23,54.62,780.15,50.59,5.86,0.0,21.32,,,,
-534,Pizza Hut,Chicken Pepperoni (Personal),439.17,19.79,7.79,0.22,112.45,948.58,50.41,4.74,3.62,14.85,,,,
-535,Pizza Hut,Chicken Sausage (Personal),443.02,19.48,8.03,0.26,38.62,678.93,48.93,4.68,0.0,17.98,,,,
-536,Pizza Hut,Chicken Supreme (Personal),445.19,17.78,6.66,0.19,39.61,1264.58,47.37,5.18,0.0,23.87,,,,
-537,Pizza Hut,Chicken Tikka Supreme (Personal),434.67,16.32,6.16,0.17,25.41,1328.54,49.46,4.31,0.0,22.49,,,,
-538,Pizza Hut,Double Chicken Sausage (Personal),445.29,19.39,7.2,0.21,89.77,637.69,49.32,5.05,4.34,18.37,,,,
-539,Pizza Hut,Italian Chicken Feast (Personal),449.4,17.22,6.38,0.17,58.63,1075.04,53.52,5.34,3.68,20.08,,,,
-540,Pizza Hut,Malai Chicken Tikka (Personal),425.45,13.67,6.06,0.2,24.64,1284.31,53.99,3.9,0.0,21.62,,,,
-541,Pizza Hut,Spiced Chicken Meatball (Personal),394.79,14.11,6.88,0.23,49.83,752.04,46.12,6.64,0.0,20.84,,,,
-542,Pizza Hut,Triple Chicken Feast (Personal),424.46,22.76,9.25,0.27,42.86,1421.66,50.12,4.88,0.0,24.15,,,,
-543,Pizza Hut,Chicken Tikka (Personal),394.73,14.53,6.18,0.18,37.48,656.21,48.43,6.83,0.0,17.56,,,,
-551,Pizza Hut,Margherita (Medium),459.03,13.43,4.9,0.15,33.58,905.82,64.32,5.18,0.0,20.22,,,,
-555,Pizza Hut,Veg Exotica (Medium),455.67,12.26,4.92,0.15,30.07,510.27,69.19,5.37,0.0,17.14,,,,
-560,Pizza Hut,Chicken n Corn Delight (Medium),444.9,13.66,5.34,0.15,52.42,1027.51,58.79,2.68,0.0,21.7,,,,
-573,Pizza Hut,Corn n Cheese (Personal),332.61,10.46,4.13,0.14,7.75,551.88,44.5,2.85,0.0,15.12,,,,
-574,Pizza Hut,Country Feast (Personal),376.45,8.6,3.32,0.1,3.99,715.45,58.33,5.65,0.0,16.44,,,,
-575,Pizza Hut,Double Cheese (Personal),370.43,11.73,5.57,0.19,17.31,608.08,50.55,2.99,0.0,15.66,,,,
-576,Pizza Hut,Double Paneer Supreme (Personal),414.59,17.76,9.31,0.3,18.31,958.27,45.34,3.3,0.0,18.35,,,,
-577,Pizza Hut,Farmer`s Pick (Personal),361.77,11.63,3.88,0.13,8.04,764.54,46.87,2.21,0.0,17.29,,,,
-578,Pizza Hut,Margherita (Personal),311.42,9.57,4.16,0.12,13.0,632.92,43.01,3.32,0.0,13.31,,,,
-579,Pizza Hut,Spiced Paneer (Personal),359.58,13.1,6.22,0.21,16.34,574.0,41.31,5.84,0.0,19.1,,,,
-580,Pizza Hut,Tandoori Onion (Personal),365.21,12.43,4.59,0.16,9.46,745.08,49.59,1.54,0.0,13.74,,,,
-581,Pizza Hut,Tandoori Paneer (Personal),477.47,15.99,8.08,0.31,15.18,894.46,66.75,5.77,0.0,16.64,,,,
-582,Pizza Hut,Veg Exotica (Personal),335.82,9.38,3.18,0.11,12.1,528.48,49.08,3.61,0.0,13.77,,,,
-583,Pizza Hut,Veg Kebab Surprise (Personal),472.77,17.81,8.11,0.25,15.12,1108.02,56.18,4.74,0.0,21.95,,,,
-584,Pizza Hut,Veggie Feast (Personal),362.03,9.91,3.76,0.11,11.87,801.89,52.4,3.95,0.0,15.82,,,,
-585,Pizza Hut,Veggie Lover (Personal),390.8,12.6,4.98,0.19,12.74,574.06,53.27,3.19,0.0,16.07,,,,
-586,Pizza Hut,Veggie Supreme (Personal),382.29,13.33,5.79,0.21,15.84,549.82,48.88,3.73,0.0,16.7,,,,
-587,Pizza Hut,Veggie Tandoori (Personal),388.81,14.59,6.22,0.23,16.74,732.5,51.14,2.22,0.0,13.23,,,,
-588,Pizza Hut,Chicken n Corn Delight (Personal),310.91,10.37,4.22,0.13,16.31,714.32,38.81,3.05,0.0,15.82,,,,
-589,Pizza Hut,Chicken Pepper Crunch (Personal),388.89,15.69,6.53,0.21,17.25,763.64,43.38,4.82,0.0,18.54,,,,
-590,Pizza Hut,Chicken Pepperoni (Personal),385.35,16.93,6.63,0.18,23.87,802.98,44.11,3.89,0.0,14.12,,,,
-591,Pizza Hut,Chicken Sausage (Personal),374.33,16.34,6.69,0.21,14.13,679.89,41.54,4.07,0.0,15.29,,,,
-593,Pizza Hut,Chicken Tikka Supreme (Personal),405.84,15.09,6.1,0.2,22.79,1193.62,47.19,3.52,0.0,20.24,,,,
-594,Pizza Hut,Double Chicken Sausage (Personal),386.9,17.63,7.19,0.24,22.28,571.16,41.64,3.79,3.09,15.41,,,,
-595,Pizza Hut,Italian Chicken Feast (Personal),407.76,16.02,6.26,0.15,53.53,881.28,47.06,5.2,0.0,18.83,,,,
-596,Pizza Hut,Malai Chicken Tikka (Personal),385.98,13.14,5.75,0.21,16.2,1096.14,48.24,3.2,0.0,18.69,,,,
-597,Pizza Hut,Spiced Chicken Meatball (Personal),354.86,13.4,5.23,0.15,21.56,699.73,40.58,5.29,0.0,17.99,,,,
-598,Pizza Hut,Triple Chicken Feast (Personal),462.99,20.17,8.36,0.21,29.8,1202.8,48.22,4.65,0.0,21.7,,,,
-599,Pizza Hut,Chicken Tikka (Personal),407.65,15.48,6.92,0.23,0.23,682.38,48.93,6.78,0.0,18.15,,,,
-600,Pizza Hut,Veggie Tandoori (Medium),480.3,18.03,7.68,0.29,20.68,904.85,63.17,2.74,0.0,16.35,,,,
-601,Pizza Hut,Corn n Cheese (Medium),406.53,12.78,5.05,0.17,9.47,674.52,54.39,3.48,0.0,18.48,,,,
-602,Pizza Hut,Country Feast (Medium),481.67,11.0,4.24,0.12,5.11,915.42,74.63,7.23,0.0,21.03,,,,
-603,Pizza Hut,Double Cheese (Medium),443.92,14.06,6.67,0.23,20.75,728.73,60.58,3.58,0.0,18.77,,,,
-605,Pizza Hut,Farmer`s Pick (Medium),454.66,14.62,4.87,0.17,10.1,960.84,58.91,2.77,0.0,21.72,,,,
-606,Pizza Hut,Margherita (Medium),369.29,11.35,4.93,0.15,15.41,750.55,51.0,3.94,0.0,15.79,,,,
-607,Pizza Hut,Spiced Paneer (Medium),446.9,16.29,7.73,0.26,20.31,713.4,51.35,7.26,0.0,23.73,,,,
-608,Pizza Hut,Tandoori Onion (Medium),440.04,14.98,5.53,0.19,11.39,897.76,59.76,1.85,0.0,16.55,,,,
-610,Pizza Hut,Veg Exotica (Medium),401.67,11.22,3.81,0.13,14.48,632.1,58.71,4.32,0.0,16.47,,,,
-612,Pizza Hut,Veggie Feast (Medium),450.64,12.34,4.68,0.14,14.77,998.15,65.22,4.91,0.0,19.69,,,,
-613,Pizza Hut,Veggie Lover (Medium),486.61,15.69,6.2,0.23,15.86,714.79,66.33,3.98,0.0,20.01,,,,
-614,Pizza Hut,Veggie Supreme (Medium),473.08,16.49,7.17,0.26,19.6,680.41,60.49,4.61,0.0,20.67,,,,
-615,Pizza Hut,Chicken n Corn Delight (Medium),392.84,13.11,5.33,0.17,20.61,902.56,49.03,3.85,0.0,19.99,,,,
-616,Pizza Hut,Chicken Pepper Crunch (Medium),492.59,19.87,8.27,0.27,21.85,967.27,54.95,6.1,0.0,23.48,,,,
-617,Pizza Hut,Chicken Pepperoni (Medium),466.92,20.52,8.03,0.22,28.92,972.96,53.45,4.71,0.0,17.11,,,,
-618,Pizza Hut,Chicken Sausage (Medium),451.49,19.7,8.07,0.25,17.05,820.02,50.1,4.91,0.0,18.44,,,,
-619,Pizza Hut,Chicken Supreme (Medium),485.2,19.23,7.62,0.2,34.42,1647.75,52.18,5.15,0.0,25.86,,,,
-620,Pizza Hut,Chicken Tikka Supreme (Medium),490.49,18.24,7.37,0.24,27.54,1442.59,57.03,4.26,0.0,24.47,,,,
-621,Pizza Hut,Double Chicken Sausage (Medium),466.64,21.27,8.67,0.28,26.88,688.88,50.23,4.57,3.73,18.58,,,,
-622,Pizza Hut,Italian Chicken Feast (Medium),485.05,19.06,7.44,0.18,63.68,1048.32,55.98,6.19,0.0,22.4,,,,
-623,Pizza Hut,Malai Chicken Tikka (Medium),473.47,16.12,7.05,0.26,19.87,1344.6,59.17,3.92,0.0,22.93,,,,
-624,Pizza Hut,Spiced Chicken Meatball (Medium),432.56,16.33,6.38,0.18,26.29,852.95,49.47,6.45,0.0,21.93,,,,
-627,Pizza Hut,Cheese Maxx (Personal),147.38,12.27,6.79,0.2,1.51,373.73,4.05,0.24,0.0,5.17,,,,
-628,Pizza Hut,Veg kebab (Personal),192.02,12.63,3.58,0.06,3.78,561.88,13.73,0.71,4.62,5.86,,,,
-629,Pizza Hut,Chicken Seekh Kebab (Personal),194.67,14.88,3.91,0.07,30.25,487.88,7.16,0.55,4.38,8.03,,,,
-630,Pizza Hut,Cheese Maxx (Medium),149.37,12.59,6.94,0.2,0.58,367.88,4.04,0.22,0.0,4.97,,,,
-631,Pizza Hut,Veg kebab (Medium),202.06,13.36,3.78,0.06,4.01,580.03,14.33,0.72,4.9,6.12,,,,
-632,Pizza Hut,Chicken Seekh Kebab (Medium),204.75,15.73,4.13,0.07,32.03,501.32,7.37,0.55,4.63,8.42,,,,
-633,Pizza Hut,Classic Paneer Capsicum & Onion,443.87,18.09,4.87,0.09,5.13,1143.26,57.4,10.9,0.0,12.87,,,,
-634,Pizza Hut,Schezwan Meatball & Capsicum,401.27,17.29,3.24,0.03,5.5,913.93,50.98,9.75,0.0,10.44,,,,
-635,Pizza Hut,Spicy Baked Chicken Wings,140.22,8.7,2.56,0.02,87.93,993.25,6.77,1.69,0.0,14.12,,,,
-636,Pizza Hut,Garlic Bread,246.73,17.63,8.96,0.36,22.4,330.22,18.45,2.14,2.19,3.58,,,,
-637,Pizza Hut,Garlic Bread Spicy Supreme,270.17,14.7,9.99,0.45,9.07,887.49,29.21,2.7,1.0,5.27,,,,
-638,Pizza Hut,Cheesy Comfort (Veg),332.02,15.78,6.19,0.24,37.26,692.95,28.68,3.3,5.21,18.81,,,,
-639,Pizza Hut,Cheesy Comfort (Chicken),439.02,26.58,10.74,0.38,78.27,1050.16,29.6,4.01,0.0,20.35,,,,
-640,Pizza Hut,Indi Rockin Roll - Veg,289.81,14.25,6.02,0.1,36.05,632.04,28.58,2.35,6.96,11.81,,,,
-641,Pizza Hut,Indi Rockin Roll - Chicken,255.65,10.9,4.64,0.09,46.48,544.72,27.07,2.41,5.34,12.32,,,,
-642,Pizza Hut,Zesty Pocket (Veg),192.91,9.08,4.22,0.13,11.4,274.33,22.1,1.94,2.95,5.7,,,,
-643,Pizza Hut,Zesty Pocket (Chicken),157.99,6.45,1.96,0.04,15.35,327.26,18.01,1.81,3.19,6.97,,,,
-644,Pizza Hut,Baked Momos (Veg),218.975,13.62,5.16,0.09,8.29,624.02,17.99,3.62,3.26,6.1,,,,
-645,Pizza Hut,Baked Momos (Chicken),223.71,13.45,4.85,0.095,40.46,542.52,15.72,2.95,2.85,9.94,,,,
-646,Pizza Hut,Tear and Share (Veg),424.82,20.6,6.36,0.16,22.69,841.66,45.21,3.05,0.0,14.65,,,,
-647,Pizza Hut,Tear and Share (Chicken),442.46,19.22,5.88,0.14,43.85,838.16,48.92,3.63,0.0,18.47,,,,
-648,Pizza Hut,Choco Vanilla Romance,90.48,1.62,1.21,0.01,3.28,40.309,17.93,0.45,13.48,1.36,,,,
-649,Pizza Hut,Ebony & Ivory,201.84,6.52,4.79,0.01,3.28,142.35,34.73,2.15,20.79,1.38,,,,
-650,Pizza Hut,Choco Chip Cookie Sundae (Regular),433.72,15.12,10.36,0.02,6.56,264.09,68.66,3.59,44.01,6.39,,,,
-651,Pizza Hut,Jamuntini,134.0,0.38,0.04,0.0,0.0,450.09,32.18,0.14,31.58,0.21,,,,
-652,Pizza Hut,Masal Pepsi,126.5,0.38,0.04,0.0,0.0,412.59,30.93,0.14,30.33,0.21,,,,
-653,Pizza Hut,Masala Mirinda,156.5,0.38,0.04,0.0,0.0,420.0,38.18,0.14,37.58,0.21,,,,
-654,Pizza Hut,Pepsi,107.5,0.0,0.0,0.0,0.0,7.5,27.25,0.0,27.25,0.0,,,,
-655,Pizza Hut,7 up,115.0,0.0,0.0,0.0,0.0,45.0,28.5,0.0,28.5,0.0,,,,
-656,Pizza Hut,Mirinda,137.5,0.0,0.0,0.0,0.0,15.0,34.5,0.0,34.5,0.0,,,,
-657,Pizza Hut,Lipton Ice Tea Lemon Flavoured,0.0,0.0,0.0,0.0,0.0,15.0,0.0,0.0,0.0,0.0,,,,
-658,Pizza Hut,Pepsi Black,74.0,0.0,0.0,0.0,0.0,22.0,18.6,0.0,18.6,0.0,,,,
+,restaurant,item,calories,total_fat,sat_fat,trans_fat,cholesterol,sodium,total_carb,fiber,sugar,protein,vit_a,vit_c,calcium,salad,cheat_score
+0,KFC,10 Pc Fried Leg,2880.0,82.6,33.0,0.2,112.0,1.1,85.1,45.0,0.0,178.6,,,,,5.19
+1,KFC,"Super Sixes (4 HC, 6 HW,
+8 Strips)",2816.5,41.5,17.0,0.08,57.0,0.8,39.5,23.0,0.0,172.1,,,,,4.56
+2,KFC,"Triple Treat (4 HC + 4
+Smoky + 6 Boneless
+Strips)",2475.4,43.1,16.6,0.07,59.0,0.9,41.7,24.0,0.0,203.0,,,,,3.98
+3,Mcdonalds,20 piece Buttermilk Crispy Chicken Tenders,2430.0,141.0,24.0,2.0,475.0,6080.0,103.0,2.0,3.0,186.0,0.0,2.0,8.0,Other,7.47
+4,KFC,"10 for 550
+(10 pc HC)
+on Wednesdays",2382.2,49.8,19.7,0.11,70.0,0.7,38.8,28.0,0.0,143.3,,,,,3.92
+5,KFC,"Friendship Bucket DL(3pc HC+3pc HW+3pc Strips + Large
+Popcorn)",2131.4,42.2,17.5,0.07,58.0,0.9,41.1,23.0,0.0,124.8,,,,,3.38
+6,KFC,8 pc Bucket,2117.5,44.2,17.5,0.1,62.0,0.6,34.5,25.0,0.0,127.4,,,,,3.39
+7,Mcdonalds,40 piece Chicken McNuggets,1770.0,107.0,18.0,0.5,295.0,3370.0,105.0,7.0,1.0,98.0,0.0,15.0,6.0,Other,5.69
+8,KFC,Big Eight ( 4pc smoky+ 4pc HC),1758.2,30.6,11.2,0.07,43.0,0.6,27.9,17.0,0.0,149.0,,,,,2.54
+9,Mcdonalds,10 piece Sweet N' Spicy Honey BBQ Glazed Tenders,1600.0,66.0,10.0,0.0,265.0,4450.0,156.0,5.0,87.0,97.0,8.0,40.0,10.0,Other,8.57
+10,KFC,6 Pc,1588.2,49.8,19.7,0.11,70.0,0.7,38.8,28.0,0.0,95.6,,,,,2.71
+11,KFC,"Mixed Zinger Doubles( 1 ch Zinger+1 Tandoori
+Zinger)",1562.9,29.5,8.7,0.03,31.0,0.4,62.8,12.0,5.75,54.0,,,,,2.44
+13,Mcdonalds,12 piece Buttermilk Crispy Chicken Tenders,1510.0,88.0,15.0,1.0,295.0,3770.0,64.0,1.0,2.0,115.0,0.0,2.0,6.0,Other,5.31
+14,KFC,5 Pc Fried Leg,1440.0,41.3,16.5,0.08,56.0,0.5,42.6,22.0,0.0,89.3,,,,,2.31
+15,KFC,"Dips Bucket (12 Pc + 4
+Dips)",1434.5,24.9,10.9,0.03,33.0,0.6,27.6,13.0,10.53,108.1,,,,,2.32
+16,KFC,"12 for 350
+(12 BS + 4
+dips) on Wednesdays",1434.5,24.9,10.9,0.0,33.0,0.6,27.6,13.0,0.0,108.1,,,,,1.89
+17,KFC,8 pc Bucket,1398.8,17.0,4.9,0.05,24.0,0.6,21.4,10.0,0.0,170.5,,,,,1.64
+19,KFC,"Chick & Share Bucket: 5 pc
+Hot & Crispy",1323.5,41.5,16.4,0.09,58.0,0.5,32.3,23.0,0.0,79.6,,,,,2.18
+22,KFC,Mingles Bucket,1269.4,35.9,15.2,0.05,48.0,0.9,46.8,19.0,0.0,62.3,,,,,1.96
+27,Mcdonalds,10 piece Buttermilk Crispy Chicken Tenders,1210.0,70.0,12.0,1.0,240.0,3230.0,52.0,1.0,4.0,94.0,0.0,0.0,4.0,Other,4.53
+28,KFC,Chick & Share Bucket: 10 pc Strips,1195.4,31.1,13.6,0.05,41.0,0.8,34.5,16.0,0.0,90.1,,,,,1.73
+31,KFC,"Chick & Share Bucket: Xtra
+Large Popcorn",1156.0,33.1,14.5,0.05,44.0,1.2,38.2,18.0,0.0,63.6,,,,,1.74
+34,Mcdonalds,Double Bacon Smokehouse Burger,1130.0,67.0,27.0,3.0,220.0,1920.0,63.0,3.0,18.0,70.0,10.0,20.0,50.0,Other,4.39
+42,KFC,4 pc,1058.8,33.2,13.1,0.07,47.0,0.4,25.8,19.0,0.0,63.7,,,,,1.65
+44,KFC,6 Pc,1049.1,19.2,5.5,0.06,27.0,0.7,24.1,11.0,0.0,127.9,,,,,1.16
+48,KFC,"Friendship Bucket DI/TA(3pc HC+3pc HW+3pc Strips +Med
+Popcorn)",1022.6,21.9,4.5,0.07,15.0,0.5,24.4,6.0,1.16,34.9,,,,,1.26
+53,KFC,Tandoori Zinger Burger,999.9,32.3,9.2,0.02,33.0,0.4,68.5,13.0,0.0,27.4,,,,,1.56
+61,Mcdonalds,6 piece Sweet N' Spicy Honey BBQ Glazed Tenders,960.0,40.0,6.0,0.0,160.0,2670.0,94.0,3.0,52.0,58.0,4.0,25.0,8.0,Other,5.11
+69,Mcdonalds,Crispy Bacon Smokehouse Chicken Sandwich,920.0,45.0,12.0,0.5,120.0,1980.0,81.0,4.0,18.0,46.0,6.0,20.0,20.0,Other,3.62
+73,Mcdonalds,20 Piece Chicken McNuggets,890.0,53.0,9.0,0.0,145.0,1680.0,53.0,4.0,0.0,49.0,0.0,8.0,4.0,Other,3.09
+74,Taco Bell,XXL Grilled Stuft Burrito - Beef,880.0,42.0,14.0,1.0,75.0,2020.0,94.0,12.0,6.0,31.0,,,,Other,3.04
+75,KFC,5 PC,874.3,16.0,4.6,0.05,22.0,0.6,20.1,9.0,0.0,106.6,,,,,0.81
+80,Mcdonalds,Single Bacon Smokehouse Burger,840.0,45.0,17.0,1.5,130.0,1580.0,62.0,2.0,18.0,46.0,6.0,20.0,20.0,Other,3.45
+85,Taco Bell,XXL Grilled Stuft Burrito - Chicken,830.0,35.0,11.0,0.0,85.0,1940.0,91.0,10.0,6.0,37.0,,,,Other,2.7
+88,Taco Bell,XXL Grilled Stuft Burrito - Steak,820.0,36.0,12.0,1.0,70.0,2020.0,91.0,10.0,7.0,33.0,,,,Other,2.82
+90,Mcdonalds,Crispy Sweet BBQ Bacon Chicken Sandwich,800.0,36.0,9.0,0.5,95.0,1820.0,80.0,5.0,18.0,39.0,4.0,20.0,30.0,Other,3.17
+95,KFC,2 Classic Chicken Crisper,787.4,9.3,4.0,0.02,12.0,0.5,56.8,5.0,3.72,41.3,,,,,0.55
+98,Taco Bell,Spicy Triple Double Crunchwrap,780.0,38.0,10.0,0.5,50.0,1850.0,87.0,9.0,8.0,23.0,20.0,10.0,25.0,Other,2.87
+99,Taco Bell,Cantina Power Burrito - Steak,780.0,28.0,7.0,0.0,50.0,1900.0,98.0,13.0,7.0,33.0,,,,Other,2.4
+101,Taco Bell,Fiesta Taco Salad-Beef,780.0,42.0,10.0,1.0,60.0,1340.0,74.0,11.0,7.0,26.0,,,,Other,2.79
+102,KFC,"Dynamite Spicy Mayo bottle -200
+g",774.0,7.0,1.2,0.0,5.0,0.1,3.4,2.0,1.6,2.0,,,,,0.34
+103,Mcdonalds,Double Quarter Pounder® with Cheese,770.0,45.0,21.0,2.5,175.0,1290.0,42.0,3.0,10.0,51.0,20.0,6.0,20.0,Other,3.03
+110,Taco Bell,Cantina Power Burrito - Chicken,760.0,27.0,6.0,0.0,60.0,1960.0,96.0,12.0,7.0,32.0,,,,Other,2.37
+112,Taco Bell,Nachos BellGrande®,760.0,39.0,6.0,0.0,30.0,1100.0,82.0,13.0,5.0,18.0,,,,Other,2.47
+113,Mcdonalds,6 piece Buttermilk Crispy Chicken Tenders,760.0,44.0,8.0,0.5,145.0,1890.0,32.0,1.0,1.0,58.0,0.0,0.0,2.0,Other,2.9
+114,Mcdonalds,Grilled Bacon Smokehouse Chicken Sandwich,750.0,31.0,10.0,0.5,155.0,1940.0,62.0,2.0,18.0,55.0,6.0,25.0,20.0,Other,2.99
+119,Mcdonalds,Crispy Maple Bacon Dijon Chicken Sandwich,740.0,35.0,9.0,0.5,95.0,1780.0,69.0,5.0,14.0,39.0,4.0,20.0,290.0,Other,2.95
+123,Taco Bell,Cantina Power Burrito - Veggie,740.0,26.0,5.0,0.0,10.0,1750.0,107.0,17.0,8.0,20.0,,,,Other,2.26
+128,Mcdonalds,Crispy Signature Sriracha Chicken Sandwich,730.0,33.0,7.0,0.0,80.0,1430.0,75.0,5.0,13.0,32.0,20.0,20.0,30.0,Other,2.66
+133,Taco Bell,Fiesta Taco Salad-Steak,720.0,36.0,8.0,1.0,55.0,1340.0,70.0,8.0,8.0,28.0,,,,Other,2.57
+134,Taco Bell,Fiesta Taco Salad-Chicken,720.0,35.0,7.0,0.0,70.0,1260.0,70.0,8.0,8.0,32.0,,,,Other,2.48
+138,KFC,Boneless Strips 6pc,717.2,37.3,16.3,0.06,49.0,0.9,41.3,20.0,0.0,54.1,,,,,1.71
+144,Taco Bell,Smothered Burrito - Beef,710.0,35.0,13.0,1.0,75.0,2260.0,70.0,10.0,4.0,28.0,,,,Other,2.78
+145,Taco Bell,Nacho Fries Bellgrande,710.0,41.0,6.0,0.0,30.0,1420.0,73.0,10.0,4.0,13.0,10.0,4.0,8.0,Other,2.7
+148,Mcdonalds,Crispy Garlic White Cheddar Chicken Sandwich,700.0,34.0,9.0,0.0,85.0,1190.0,67.0,5.0,11.0,33.0,10.0,15.0,35.0,Other,2.53
+150,Taco Bell,Original Triple Double Crunchwrap,700.0,30.0,9.0,0.5,45.0,1550.0,85.0,9.0,7.0,23.0,15.0,6.0,25.0,Other,2.33
+151,KFC,4 pc,699.4,25.5,7.3,0.07,36.0,1.0,32.1,14.0,0.0,85.3,,,,,1.11
+154,Mcdonalds,Sweet BBQ Bacon 1/4 lb Burger,690.0,37.0,14.0,1.5,110.0,1310.0,51.0,3.0,14.0,38.0,6.0,15.0,15.0,Other,2.87
+158,KFC,2 Classic veg Crispers,684.4,27.6,9.5,0.03,30.0,0.4,54.6,12.0,6.32,17.7,,,,,1.47
+160,Mcdonalds,Crispy Pico Guacamole Chicken Sandwich,680.0,32.0,7.0,0.0,80.0,1430.0,69.0,6.0,12.0,31.0,8.0,15.0,30.0,Other,2.58
+165,Mcdonalds,Signature Sriracha Burger,670.0,35.0,12.0,1.5,95.0,1010.0,56.0,4.0,13.0,32.0,20.0,15.0,30.0,Other,2.6
+168,Taco Bell,Smothered Burrito - Steak,670.0,29.0,11.0,0.5,80.0,2080.0,68.0,7.0,4.0,35.0,,,,Other,2.4
+176,Taco Bell,Beef Quesarito,650.0,34.0,12.0,0.5,60.0,1450.0,65.0,6.0,5.0,22.0,,,,Other,2.44
+177,Taco Bell,Smothered Burrito - Shredded Chicken,650.0,28.0,10.0,0.0,70.0,2230.0,67.0,8.0,4.0,34.0,,,,Other,2.42
+178,Taco Bell,Crispy Chicken Quesadilla,650.0,37.0,13.0,0.5,75.0,1480.0,51.0,5.0,3.0,26.0,10.0,2.0,45.0,Other,2.54
+179,Mcdonalds,4 piece Sweet N' Spicy Honey BBQ Glazed Tenders,640.0,27.0,4.0,0.0,105.0,1780.0,63.0,2.0,35.0,39.0,4.0,15.0,4.0,Other,3.41
+183,Mcdonalds,Maple Bacon Dijon 1/4 lb Burger,640.0,36.0,14.0,1.5,110.0,1260.0,40.0,3.0,10.0,37.0,6.0,15.0,15.0,Other,2.68
+190,Mcdonalds,Grilled Sweet BBQ Bacon Chicken Sandwich,630.0,22.0,7.0,0.0,135.0,1930.0,61.0,4.0,18.0,48.0,4.0,30.0,25.0,Other,2.51
+194,Taco Bell,Beef Crunchy Cheesy Core Burrito,630.0,26.0,10.0,0.5,45.0,1530.0,76.0,7.0,5.0,22.0,15.0,4.0,35.0,Other,2.04
+195,Taco Bell,Steak Quesarito,630.0,31.0,11.0,0.5,65.0,1410.0,64.0,3.0,4.0,25.0,,,,Other,2.23
+198,KFC,Veg Zinger Burger,623.0,25.7,9.5,0.02,28.0,0.4,83.4,11.0,14.13,14.5,,,,,1.7
+201,Mcdonalds,Garlic White Cheddar Burger,620.0,34.0,13.0,1.5,95.0,790.0,48.0,3.0,11.0,32.0,10.0,10.0,35.0,Other,2.41
+203,Taco Bell,Chicken Quesarito,620.0,30.0,10.0,0.0,60.0,1440.0,64.0,4.0,4.0,24.0,,,,Other,2.2
+204,Taco Bell,Chickstar,620.0,37.0,8.0,0.0,50.0,1290.0,53.0,4.0,4.0,17.0,8.0,6.0,15.0,Other,2.53
+207,Taco Bell,Steak Crunchy Cheesy Core Burrito,610.0,24.0,9.0,0.0,50.0,1520.0,75.0,5.0,5.0,25.0,10.0,4.0,40.0,Other,1.93
+208,Taco Bell,Chicken Crunchy Cheesy Core Burrito,610.0,24.0,9.0,0.0,55.0,1510.0,74.0,5.0,5.0,25.0,10.0,4.0,35.0,Other,1.92
+215,Taco Bell,Spicy Double Chalupa,600.0,35.0,8.0,0.5,50.0,1240.0,52.0,7.0,5.0,21.0,15.0,8.0,15.0,Other,2.46
+216,Taco Bell,Double Chalupa,600.0,35.0,8.0,0.5,50.0,1010.0,50.0,6.0,5.0,21.0,15.0,4.0,15.0,Other,2.36
+224,KFC,Double Down burger,588.7,33.7,12.2,0.07,40.0,1.0,33.8,16.0,2.79,37.6,,,,,1.75
+225,KFC,Popcorn Chicken,587.4,24.4,10.0,0.0,28.0,1.3,69.7,11.0,0.0,23.4,,,,,1.07
+226,KFC,Classic chicken biryani,586.5,27.4,10.3,0.0,34.0,1.0,56.4,14.0,0.0,28.4,,,,,1.26
+232,Mcdonalds,Grilled Maple Bacon Dijon Chicken Sandwich,580.0,21.0,8.0,0.0,135.0,1890.0,50.0,3.0,14.0,48.0,4.0,30.0,30.0,Other,2.28
+236,Taco Bell,Express Taco Salad w/ Chips,580.0,29.0,9.0,1.0,60.0,1270.0,59.0,8.0,7.0,23.0,,,,Other,2.22
+237,Taco Bell,Express Taco Salad w/ Chips,580.0,29.0,9.0,1.0,60.0,1270.0,59.0,8.0,7.0,23.0,,,,Other,2.22
+238,Mcdonalds,Pico Guacamole 1/4 lb Burger,580.0,33.0,12.0,1.5,95.0,920.0,41.0,4.0,7.0,29.0,8.0,15.0,15.0,Other,2.31
+240,Taco Bell,Cantina Power Bowl - Steak,580.0,23.0,4.0,0.0,50.0,1460.0,66.0,10.0,4.0,27.0,,,,Other,1.81
+241,KFC,Popcorn Lrg,578.0,33.1,14.5,0.05,44.0,1.2,38.2,18.0,0.0,31.8,,,,,1.62
+242,Mcdonalds,Premium Buttermilk Crispy Chicken Deluxe Sandwich,570.0,23.0,5.0,0.0,60.0,1050.0,64.0,4.0,11.0,28.0,4.0,10.0,20.0,Other,1.91
+248,Taco Bell,Beef Spicy Cheesy Core Burrito,570.0,23.0,10.0,0.5,45.0,1760.0,68.0,7.0,5.0,22.0,15.0,6.0,35.0,Other,1.99
+249,Taco Bell,Double Cheesy Gordita Crunch,570.0,32.0,12.0,1.0,70.0,1110.0,44.0,7.0,5.0,25.0,15.0,2.0,30.0,Other,2.27
+254,KFC,"Chicken
+Zinger Burger",563.1,26.6,8.2,0.04,28.0,0.3,57.1,11.0,11.51,26.6,,,,,1.69
+260,Mcdonalds,Grilled Signature Sriracha Chicken Sandwich,560.0,20.0,5.0,0.0,115.0,1550.0,56.0,4.0,14.0,41.0,20.0,25.0,30.0,Other,2.07
+261,Taco Bell,Cantina Power Bowl - Chicken,560.0,22.0,4.0,0.0,60.0,1520.0,64.0,9.0,4.0,26.0,,,,Other,1.79
+269,Taco Bell,Steak Spicy Cheesy Core Burrito,550.0,21.0,9.0,0.0,50.0,1750.0,66.0,5.0,5.0,24.0,10.0,6.0,35.0,Other,1.87
+272,Taco Bell,Beefy 5-Layer Burrito,550.0,22.0,8.0,0.0,35.0,1270.0,68.0,8.0,5.0,19.0,,,,Other,1.72
+273,Taco Bell,Loaded Taco Burrito,550.0,29.0,9.0,0.5,50.0,1130.0,52.0,7.0,4.0,20.0,15.0,6.0,20.0,Other,2.07
+282,Mcdonalds,Big Mac,540.0,28.0,10.0,1.0,80.0,950.0,46.0,3.0,9.0,25.0,10.0,2.0,15.0,Other,2.14
+284,Taco Bell,Crunchwrap Supreme®,540.0,21.0,6.0,0.0,30.0,1110.0,71.0,7.0,7.0,16.0,,,,Other,1.66
+287,Taco Bell,Chicken Spicy Cheesy Core Burrito,540.0,20.0,8.0,0.0,55.0,1740.0,66.0,5.0,5.0,24.0,15.0,8.0,35.0,Other,1.8
+288,Taco Bell,1/2 lb.* Cheesy Potato Burrito,540.0,26.0,7.0,1.0,45.0,1360.0,59.0,7.0,4.0,19.0,,,,Other,1.99
+289,Taco Bell,Cantina Power Bowl - Veggie,540.0,21.0,3.0,0.0,10.0,1310.0,75.0,14.0,4.0,14.0,,,,Other,1.64
+291,Taco Bell,Mexican Pizza,540.0,31.0,8.0,1.0,40.0,860.0,47.0,7.0,2.0,20.0,,,,Other,2.02
+293,KFC,Hot Wings 4 Pc,534.3,33.4,13.3,0.08,46.0,0.7,34.2,18.0,0.0,24.2,,,,,1.72
+297,Mcdonalds,Premium Crispy Chicken Deluxe Sandwich,530.0,22.0,4.0,0.0,45.0,1000.0,59.0,3.0,13.0,25.0,6.0,10.0,20.0,Other,1.93
+298,Mcdonalds,Grilled Garlic White Cheddar Chicken Sandwich,530.0,20.0,7.0,0.0,125.0,1150.0,48.0,3.0,11.0,42.0,10.0,20.0,35.0,Other,1.78
+299,Mcdonalds,Quarter Pounder® with Cheese,530.0,27.0,13.0,1.5,100.0,1090.0,41.0,3.0,10.0,31.0,20.0,6.0,15.0,Other,2.19
+303,KFC,2 pc,529.4,33.2,13.1,0.07,47.0,0.4,25.8,19.0,0.0,31.9,,,,,1.72
+307,Mcdonalds,Grilled Pico Guacamole Chicken Sandwich,520.0,18.0,6.0,0.0,115.0,1540.0,50.0,4.0,12.0,40.0,8.0,25.0,30.0,Other,1.87
+308,Mcdonalds,Premium Southwest Salad w/ Crispy Chicken,520.0,25.0,6.0,0.0,75.0,960.0,46.0,8.0,9.0,28.0,180.0,40.0,20.0,Other,1.97
+312,Taco Bell,Steak Quesadilla,520.0,28.0,12.0,1.0,65.0,1250.0,41.0,4.0,3.0,25.0,,,,Other,2.07
+313,Taco Bell,Chicken Quesadilla,520.0,28.0,12.0,1.0,75.0,1210.0,41.0,4.0,3.0,27.0,,,,Other,2.05
+316,KFC,Veg Biryani,512.4,19.3,7.7,0.0,30.0,1.2,74.5,12.0,0.0,9.7,,,,,0.78
+319,Mcdonalds,Classic Chicken Sandwich,510.0,24.0,4.0,0.0,65.0,1040.0,49.0,3.0,6.0,25.0,0.0,4.0,2.0,Other,1.83
+321,Taco Bell,7-Layer Burrito,510.0,19.0,7.0,0.0,20.0,1090.0,68.0,11.0,4.0,16.0,,,,Other,1.42
+322,KFC,"Smoky Chicken
+Biryani",509.5,18.4,6.5,0.0,20.0,1.4,64.0,8.0,0.0,22.4,,,,,0.72
