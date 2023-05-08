@@ -7,7 +7,7 @@ from math import sin, cos, sqrt, atan2, radians
 import pgeocode
 
 # For Dev only
-pd.set_option('display.max_columns', None)
+# pd.set_option('display.max_columns', None)
 
 def get_coordinates(country_code, postal_code):
     nomi = pgeocode.Nominatim(country_code)
@@ -70,9 +70,26 @@ def add_distance_to_df(restaurant_locations_df, lat, lng):
     return restaurant_locations_df.sort_values(by=["Distance in Km"])
     
 def keep_only_closest_location(restaurant_locations_df):
-    return restaurant_locations_df.drop_duplicates(subset=["Name"], keep="first").reset_index()
+    return restaurant_locations_df.drop_duplicates(subset=["Name"], keep="first").reset_index(drop=True)
 
-def get_restaurant_nutrition_data()
+def get_restaurant_nutrition_data(restaurant_locations_df):
+    restaurant_names = restaurant_locations_df["Name"].values.tolist()
+    # Remove apostrophes since they aren't used in the dataset
+    restaurant_names = [name.replace("'", "") for name in restaurant_names]
+    
+    # Using a local dataset for now, will make a db later
+    nutrition_df = pd.read_csv("fastfood.csv")
+    meal_items_df = nutrition_df[nutrition_df["restaurant"].isin(restaurant_names)]
+    # Anything less than 500 cals is probably not a cheat meal
+    meal_items_df = meal_items_df[meal_items_df["calories"] < 500]
+    meal_items_df.to_csv("sub5.csv")
+    print(meal_items_df)
+
+def calculate_cheat_score(total_cals, total_fat, sodium, sugar):
+    pass
+    # Each item maps from min to max linearly from 0 to the max weight
+    # Don't care if it goes over, max score is capped at 10
+    
 
 def get_cheat_meals(country_code='us', postal_code='78653', query='fast food', radius=5000):
     # Get the search area coordinates
@@ -86,6 +103,8 @@ def get_cheat_meals(country_code='us', postal_code='78653', query='fast food', r
     rest_locs_df = add_distance_to_df(rest_locs_df, lat, lng)
     rest_locs_df = keep_only_closest_location(rest_locs_df)
 
+    get_restaurant_nutrition_data(rest_locs_df)
+
     print(rest_locs_df)
     
     
@@ -94,5 +113,5 @@ def get_cheat_meals(country_code='us', postal_code='78653', query='fast food', r
 
 if __name__ == "__main__":
     # print(get_coordinates('us', '78653'))
-    # get_cheat_meals()
-    get_restaurant_nutrition_data()
+    get_cheat_meals()
+    # get_restaurant_nutrition_data()
