@@ -9,3 +9,6 @@ BUTTON_TEXT_COLOR = "#FFF"
 
 # Fonts
 FAMILY = "helvetica"
+
+# Sizes
+MEAL_OPTION_HEIGHT = 100

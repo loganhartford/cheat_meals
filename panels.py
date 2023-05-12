@@ -1,6 +1,9 @@
 import customtkinter as ctk
 from imgage_widgets import StaticImage
 from settings import *
+from data import get_cheat_meals
+from CTkMessagebox import CTkMessagebox
+from errors import ErrorMesage
 
 
 class LogoPanel(ctk.CTkFrame):
@@ -47,33 +50,42 @@ class UserInputPanel(ctk.CTkFrame):
 
         # Widgets
         # Address input
-        ctk.CTkEntry(
+        self.address_entry = ctk.CTkEntry(
             master=self,
             text_color=TEXT_COLOR,
             fg_color=BG_COLOR,
             font=self.entry_font,
             placeholder_text="Street Address",
             border_color=BORDER_COLOR,
-        ).grid(column=0, row=0, columnspan=2, sticky="nsew", pady=(0, 2.5), padx=5)
-        ctk.CTkEntry(
+        )
+        self.address_entry.grid(
+            column=0, row=0, columnspan=2, sticky="nsew", pady=(0, 2.5), padx=5
+        )
+        self.city_entry = ctk.CTkEntry(
             master=self,
             text_color=TEXT_COLOR,
             fg_color=BG_COLOR,
             font=self.entry_font,
             placeholder_text="City",
             border_color=BORDER_COLOR,
-        ).grid(column=0, row=1, sticky="nsew", pady=(2.5, 0), padx=(5, 2.5))
-        ctk.CTkEntry(
+        )
+        self.city_entry.grid(
+            column=0, row=1, sticky="nsew", pady=(2.5, 0), padx=(5, 2.5)
+        )
+        self.province_entry = ctk.CTkEntry(
             master=self,
             text_color=TEXT_COLOR,
             fg_color=BG_COLOR,
             font=self.entry_font,
             placeholder_text="Province/State",
             border_color=BORDER_COLOR,
-        ).grid(column=1, row=1, sticky="nsew", pady=(2.5, 0), padx=(2.5, 5))
+        )
+        self.province_entry.grid(
+            column=1, row=1, sticky="nsew", pady=(2.5, 0), padx=(2.5, 5)
+        )
 
         # Radius input
-        ctk.CTkOptionMenu(
+        self.radius_input = ctk.CTkOptionMenu(
             master=self,
             values=["Within...", "5km", "10km", "25km", "50km"],
             text_color=TEXT_COLOR,
@@ -85,7 +97,8 @@ class UserInputPanel(ctk.CTkFrame):
             button_hover_color=DROP_DOWN_BG_COLOR,
             font=self.entry_font,
             dropdown_font=self.dropdown_font,
-        ).grid(column=2, row=1, sticky="nsew")
+        )
+        self.radius_input.grid(column=2, row=1, sticky="nsew")
 
         # Find button
         ctk.CTkButton(
@@ -95,6 +108,7 @@ class UserInputPanel(ctk.CTkFrame):
             text_color=BUTTON_TEXT_COLOR,
             fg_color=BUTTON_COLOR,
             hover_color=BUTTON_HOVER_COLOR,
+            command=self.button_click,
         ).grid(column=3, row=1, sticky="nsew", padx=10)
 
         # Cheat score input
@@ -128,5 +142,57 @@ class UserInputPanel(ctk.CTkFrame):
         ).pack(expand=True, anchor="n")
         cheat_score_frame.grid(column=4, row=0, rowspan=2, sticky="nsew", pady=3)
 
+    def button_click(self):
+        # Store user inputs
+        user_inputs = [
+            self.address_entry.get(),
+            self.city_entry.get(),
+            self.province_entry.get(),
+        ]
+        radius = self.radius_input.get()
+        cheat_score = round(self.cheat_score.get(), 1)
+
+        # Verify inputs
+        for string in user_inputs:
+            if string == "":
+                ErrorMesage(self, "Please input your locaiton information")
+                return
+        if radius == "Within...":
+            ErrorMesage(self, "Please select a search radius.")
+            return
+
+        full_address = " ".join(user_inputs)
+        # cheat_meals_df = get_cheat_meals(full_address, cheat_score, radius)
+
+    # def render_error(self, error_text):
+    #     top = ctk.CTkToplevel(fg_color=BG_COLOR)
+    #     top.geometry("")
+
     def update_display(self, *args):
         self.cheat_score_display.set(str(round(self.cheat_score.get(), 1)))
+
+
+class MealOptionsPanel(ctk.CTkScrollableFrame):
+    def __init__(self, parent, col, row, colspan):
+        super().__init__(
+            master=parent,
+            fg_color="transparent",
+            scrollbar_fg_color="transparent",
+            scrollbar_button_color=DROP_DOWN_BG_COLOR,
+            scrollbar_button_hover_color=BORDER_COLOR,
+        )
+        self.grid(
+            column=col, row=row, columnspan=colspan, sticky="nsew", pady=10, padx=10
+        )
+
+        # Data
+        self.title_font = ctk.CTkFont(family=FAMILY, size=28, weight="bold")
+
+        ctk.CTkLabel(
+            self,
+            text="Meal Options",
+            height=MEAL_OPTION_HEIGHT / 1.5,
+            fg_color=BORDER_COLOR,
+            font=self.title_font,
+            text_color=TEXT_COLOR,
+        ).pack(fill="x")
