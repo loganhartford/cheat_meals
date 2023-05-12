@@ -25,9 +25,12 @@ class App(ctk.CTk):
         self.logo_png = Image.open("img/logo.png")
         self.cheat_score = ctk.DoubleVar()
         self.cheat_score.set(5.0)
+        self.meal_data = ctk.StringVar()
 
         # Initial version
-        self.version = DesktopVersion(self, self.logo_png, self.cheat_score)
+        self.version = DesktopVersion(
+            self, self.logo_png, self.cheat_score, self.meal_data
+        )
 
         # States
         self.width_break = 700
@@ -51,9 +54,13 @@ class App(ctk.CTk):
         self.version.pack_forget()
         # Mobile verion
         if self.mobile_version_bool.get():
-            self.version = MobileVersion(self, self.logo_png, self.cheat_score)
+            self.version = MobileVersion(
+                self, self.logo_png, self.cheat_score, self.meal_data
+            )
         else:
-            self.version = DesktopVersion(self, self.logo_png, self.cheat_score)
+            self.version = DesktopVersion(
+                self, self.logo_png, self.cheat_score, self.meal_data
+            )
 
     def title_bar_color(self, color):
         try:

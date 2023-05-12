@@ -3,7 +3,7 @@ from panels import *
 
 
 class MobileVersion(CTkFrame):
-    def __init__(self, parent, logo_img, cheat_score):
+    def __init__(self, parent, logo_img, cheat_score, meal_data):
         super().__init__(master=parent, fg_color="transparent")
         self.pack(expand=True, fill="both")
 
@@ -17,7 +17,7 @@ class MobileVersion(CTkFrame):
 
 
 class DesktopVersion(CTkFrame):
-    def __init__(self, parent, logo_img, cheat_score):
+    def __init__(self, parent, logo_img, cheat_score, meal_data):
         super().__init__(master=parent, fg_color="transparent")
         self.pack(expand=True, fill="both")
 
@@ -29,8 +29,8 @@ class DesktopVersion(CTkFrame):
 
         # Widgets
         LogoPanel(self, logo_img, 0, 0)
-        UserInputPanel(self, cheat_score, 1, 0, 3)
-        MealOptionsPanel(self, 0, 1, 3)
+        UserInputPanel(self, cheat_score, meal_data, 1, 0, 3)
+        MealOptionsPanel(self, meal_data, 0, 1, 3)
 
         # ctk.CTkFrame(master=self, fg_color="blue").grid(column=1, row=0, sticky="nsew")
         # ctk.CTkFrame(master=self, fg_color="green").grid(column=0, row=1, sticky="nsew")

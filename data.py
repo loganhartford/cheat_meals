@@ -328,3 +328,9 @@ def get_cheat_meals(
 if __name__ == "__main__":
     cheat_meals_df = get_cheat_meals("68 hall avenue guelph on", 7.5, 5000)
     cheat_meals_df.to_csv("cheat_meals.csv")
+
+""" 
+Notes:
+- should return a list of values from the main function, no need for a df
+- should maintain the cases and ' in the list we return to app for display
+"""

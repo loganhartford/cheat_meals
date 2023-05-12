@@ -2,8 +2,12 @@ import customtkinter as ctk
 from imgage_widgets import StaticImage
 from settings import *
 from data import get_cheat_meals
-from CTkMessagebox import CTkMessagebox
 from errors import ErrorMesage
+import json
+from PIL import Image
+
+# delete later (return a list)
+import pandas as pd
 
 
 class LogoPanel(ctk.CTkFrame):
@@ -16,25 +20,28 @@ class LogoPanel(ctk.CTkFrame):
         self.rowconfigure(0, weight=1, uniform="a")
 
         # Widgets
-        StaticImage(self, logo_img, 0, 0)
+        StaticImage(self, logo_img, "white", 0, 0)
 
 
 class UserInputPanel(ctk.CTkFrame):
-    def __init__(self, parent, cheat_score, col, row, colspan):
+    def __init__(self, parent, cheat_score, meal_data, col, row, colspan):
         super().__init__(master=parent, fg_color="transparent")
         self.grid(
             column=col, row=row, columnspan=colspan, sticky="nsew", pady=10, padx=10
         )
 
-        # Data
+        # Fonts
         self.entry_font = ctk.CTkFont(family=FAMILY, size=20)
         self.dropdown_font = ctk.CTkFont(family=FAMILY, size=14)
         self.cheat_score_font = ctk.CTkFont(family=FAMILY, size=28, weight="bold")
         self.button_font = ctk.CTkFont(family=FAMILY, size=20, weight="bold")
+
+        # Data
         self.cheat_score = cheat_score
         self.cheat_score_display = ctk.StringVar()
         self.update_display()
         self.cheat_score.trace("w", self.update_display)
+        self.meal_data = meal_data
 
         # Layout
         self.columnconfigure(
@@ -152,28 +159,28 @@ class UserInputPanel(ctk.CTkFrame):
         radius = self.radius_input.get()
         cheat_score = round(self.cheat_score.get(), 1)
 
-        # Verify inputs
-        for string in user_inputs:
-            if string == "":
-                ErrorMesage(self, "Please input your locaiton information")
-                return
-        if radius == "Within...":
-            ErrorMesage(self, "Please select a search radius.")
-            return
+        # # Verify inputs
+        # for string in user_inputs:
+        #     if string == "":
+        #         ErrorMesage(self, "Please input your locaiton information")
+        #         return
+        # if radius == "Within...":
+        #     ErrorMesage(self, "Please select a search radius.")
+        #     return
 
         full_address = " ".join(user_inputs)
-        # cheat_meals_df = get_cheat_meals(full_address, cheat_score, radius)
 
-    # def render_error(self, error_text):
-    #     top = ctk.CTkToplevel(fg_color=BG_COLOR)
-    #     top.geometry("")
+        # Get cheat meals
+        # cheat_meals = get_cheat_meals(full_address, cheat_score, radius)
+        cheat_meals = pd.read_csv("cheat_meals.csv").values.tolist()
+        self.meal_data.set(json.dumps(cheat_meals).replace("\\n", " "))
 
     def update_display(self, *args):
         self.cheat_score_display.set(str(round(self.cheat_score.get(), 1)))
 
 
 class MealOptionsPanel(ctk.CTkScrollableFrame):
-    def __init__(self, parent, col, row, colspan):
+    def __init__(self, parent, meal_data, col, row, colspan):
         super().__init__(
             master=parent,
             fg_color="transparent",
@@ -185,14 +192,62 @@ class MealOptionsPanel(ctk.CTkScrollableFrame):
             column=col, row=row, columnspan=colspan, sticky="nsew", pady=10, padx=10
         )
 
-        # Data
+        # Fonts
         self.title_font = ctk.CTkFont(family=FAMILY, size=28, weight="bold")
+        self.normal_font = ctk.CTkFont(family=FAMILY, size=14)
+
+        # Data
+        self.meal_data = meal_data
+        self.meal_data.trace("w", self.render_meal_options)
 
         ctk.CTkLabel(
             self,
             text="Meal Options",
-            height=MEAL_OPTION_HEIGHT / 1.5,
-            fg_color=BORDER_COLOR,
+            height=30,
+            fg_color="transparent",
             font=self.title_font,
-            text_color=TEXT_COLOR,
-        ).pack(fill="x")
+            text_color=BUTTON_COLOR,
+        ).pack(fill="x", anchor="s")
+        ctk.CTkFrame(master=self, fg_color=MEAL_OPTION_HEADER, height=5).pack(
+            fill="x", pady=(0, 10), anchor="n"
+        )
+
+    def render_meal_options(self, *args):
+        cheat_meals = json.loads(self.meal_data.get())
+
+        for meal in cheat_meals:
+            brand, item, *nutrition, cheat_score, address, distance, __ = meal
+
+            # Meal options
+            frame = ctk.CTkFrame(
+                master=self, fg_color=MEAL_OPTION_BG_COLOR, height=MEAL_OPTION_HEIGHT
+            )
+            frame.pack(fill="x")
+
+            # Layout
+            frame.columnconfigure((0, 1, 2), weight=1, uniform="a")
+            frame.rowconfigure((0, 1, 2), weight=1, uniform="a")
+
+            # Widgets
+            item_img = Image.open("img/logo.png")
+            StaticImage(
+                frame, item_img, MEAL_OPTION_BG_COLOR, 0, 0, rowspan=3, height=80
+            )
+
+            ctk.CTkLabel(
+                master=frame,
+                font=self.normal_font,
+                fg_color="transparent",
+                text_color=TEXT_COLOR,
+                text=f"Brand: {brand}",
+            ).grid(column=1, row=0, columnspan=2, sticky="nsew")
+            ctk.CTkLabel(
+                master=frame,
+                font=self.normal_font,
+                fg_color="transparent",
+                text_color=TEXT_COLOR,
+                text=f"Item: {item}",
+            ).grid(column=1, row=1, columnspan=2, sticky="nsew")
+
+            # Spacer
+            ctk.CTkFrame(master=self, fg_color="transparent", height=5).pack(fill="x")

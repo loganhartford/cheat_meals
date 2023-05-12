@@ -3,15 +3,16 @@ from PIL import ImageTk
 
 
 class StaticImage(Canvas):
-    def __init__(self, parent, image, row, col):
+    def __init__(self, parent, image, color, row, col, rowspan=1, height=None):
         super().__init__(
             master=parent,
             bd=0,
             highlightthickness=0,
             relief="ridge",
-            background="white",
+            background=color,
+            height=height,
         )
-        self.grid(column=col, row=row, sticky="nsew")
+        self.grid(column=col, row=row, rowspan=rowspan, sticky="nsew")
 
         # Image ratio
         self.image = image
