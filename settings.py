@@ -1,1 +1,11 @@
+# Colors
 BG_COLOR = "#FFF"
+DROP_DOWN_BG_COLOR = "#EEE"
+TEXT_COLOR = "#444"
+BORDER_COLOR = "#DDD"
+BUTTON_COLOR = "#ffa94d"
+BUTTON_HOVER_COLOR = "#ffc382"
+BUTTON_TEXT_COLOR = "#FFF"
+
+# Fonts
+FAMILY = "helvetica"

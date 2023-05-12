@@ -2,6 +2,7 @@
 from settings import *
 import customtkinter as ctk
 from versions import MobileVersion, DesktopVersion
+from PIL import Image
 
 # For setting the title bar color on widnows
 try:
@@ -14,14 +15,19 @@ class App(ctk.CTk):
     def __init__(self):
         super().__init__(fg_color=BG_COLOR)
         self.title_bar_color(BG_COLOR)
-        self.geometry("1000x844")
+        self.geometry("1200x844")
         self.minsize(375, 667)  # iPhone SE
-        self.maxsize(0, 844)  # iPhone 12 Pro height
+        self.maxsize(1920, 844)  # iPhone 12 Pro height
         self.title("")
         self.iconbitmap("icons/empty.ico")
 
+        # Data
+        self.logo_png = Image.open("img/logo.png")
+        self.cheat_score = ctk.DoubleVar()
+        self.cheat_score.set(5.0)
+
         # Initial version
-        self.version = DesktopVersion(self)
+        self.version = DesktopVersion(self, self.logo_png, self.cheat_score)
 
         # States
         self.width_break = 700
@@ -40,15 +46,14 @@ class App(ctk.CTk):
         else:
             if event.width < self.width_break:
                 self.mobile_version_bool.set(True)
-        print(event.height, event.width, self.mobile_version_bool.get())
 
     def change_size(self, *args):
         self.version.pack_forget()
         # Mobile verion
         if self.mobile_version_bool.get():
-            self.version = MobileVersion(self)
+            self.version = MobileVersion(self, self.logo_png, self.cheat_score)
         else:
-            self.version = DesktopVersion(self)
+            self.version = DesktopVersion(self, self.logo_png, self.cheat_score)
 
     def title_bar_color(self, color):
         try:
