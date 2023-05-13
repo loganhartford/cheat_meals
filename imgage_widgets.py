@@ -3,7 +3,9 @@ from PIL import ImageTk
 
 
 class StaticImage(Canvas):
-    def __init__(self, parent, image, color, row, col, rowspan=1, height=None):
+    def __init__(
+        self, parent, image, color, row, col, rowspan=1, height=None, width=None
+    ):
         super().__init__(
             master=parent,
             bd=0,
@@ -11,6 +13,7 @@ class StaticImage(Canvas):
             relief="ridge",
             background=color,
             height=height,
+            width=width,
         )
         self.grid(column=col, row=row, rowspan=rowspan, sticky="nsew")
 
@@ -29,7 +32,6 @@ class StaticImage(Canvas):
         self.bind("<Configure>", self.resize)
 
     def resize(self, event=None):
-        print(event.height, event.width)
         canvas_ratio = event.width / event.height
 
         self.canvas_width = event.width

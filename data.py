@@ -54,7 +54,8 @@ def find_restaurants_near(lat, lng, query, radius):
     response = requests.get(places_base_url, params=params)
     data = response.json()
     if data["status"] == "OK":
-        results = data["results"]
+        results = data["results"][0]
+        print(results)
         return [
             (
                 result["name"],

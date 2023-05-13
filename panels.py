@@ -4,7 +4,8 @@ from settings import *
 from data import get_cheat_meals
 from errors import ErrorMesage
 import json
-from PIL import Image
+from PIL import Image, ImageTk
+from widgets import IconAndText
 
 # delete later (return a list)
 import pandas as pd
@@ -189,7 +190,12 @@ class MealOptionsPanel(ctk.CTkScrollableFrame):
             scrollbar_button_hover_color=BORDER_COLOR,
         )
         self.grid(
-            column=col, row=row, columnspan=colspan, sticky="nsew", pady=10, padx=10
+            column=col,
+            row=row,
+            columnspan=colspan,
+            sticky="nsew",
+            pady=10,
+            padx=(10, 0),
         )
 
         # Fonts
@@ -199,6 +205,12 @@ class MealOptionsPanel(ctk.CTkScrollableFrame):
         # Data
         self.meal_data = meal_data
         self.meal_data.trace("w", self.render_meal_options)
+        btn_img = Image.open("img/right-arrow.png")
+        self.btn_img = ctk.CTkImage(
+            light_image=btn_img,
+            dark_image=btn_img,
+            size=(64 / 256 * MEAL_OPTION_HEIGHT, MEAL_OPTION_HEIGHT),
+        )
 
         ctk.CTkLabel(
             self,
@@ -207,9 +219,9 @@ class MealOptionsPanel(ctk.CTkScrollableFrame):
             fg_color="transparent",
             font=self.title_font,
             text_color=BUTTON_COLOR,
-        ).pack(fill="x", anchor="s")
+        ).pack(fill="x", padx=(0, 10))
         ctk.CTkFrame(master=self, fg_color=MEAL_OPTION_HEADER, height=5).pack(
-            fill="x", pady=(0, 10), anchor="n"
+            fill="x", pady=(0, 10), padx=(0, 10)
         )
 
     def render_meal_options(self, *args):
@@ -220,34 +232,60 @@ class MealOptionsPanel(ctk.CTkScrollableFrame):
 
             # Meal options
             frame = ctk.CTkFrame(
-                master=self, fg_color=MEAL_OPTION_BG_COLOR, height=MEAL_OPTION_HEIGHT
+                master=self,
+                fg_color=MEAL_OPTION_BG_COLOR,
+                height=MEAL_OPTION_HEIGHT,
             )
-            frame.pack(fill="x")
+            frame.pack(fill="x", padx=(0, 10))
 
             # Layout
-            frame.columnconfigure((0, 1, 2), weight=1, uniform="a")
+            frame.columnconfigure((0, 1, 2), weight=3, uniform="a")
+            frame.columnconfigure(3, weight=1, uniform="a")
             frame.rowconfigure((0, 1, 2), weight=1, uniform="a")
 
             # Widgets
             item_img = Image.open("img/logo.png")
             StaticImage(
-                frame, item_img, MEAL_OPTION_BG_COLOR, 0, 0, rowspan=3, height=80
+                frame, item_img, MEAL_OPTION_BG_COLOR, 0, 0, rowspan=3, height=65
             )
 
-            ctk.CTkLabel(
+            # Restaurant name
+            IconAndText(frame, "img/restaurant.png", brand, 1, 0, 2)
+            # Meal Item
+            text_box = ctk.CTkTextbox(
                 master=frame,
                 font=self.normal_font,
                 fg_color="transparent",
+                border_width=0,
+                activate_scrollbars=False,
                 text_color=TEXT_COLOR,
-                text=f"Brand: {brand}",
-            ).grid(column=1, row=0, columnspan=2, sticky="nsew")
-            ctk.CTkLabel(
+                wrap="word",
+                height=MEAL_OPTION_HEIGHT / 3,
+            )
+            text_box.grid(column=1, row=1, columnspan=2, sticky="nsew")
+            text_box.insert("0.0", f"{item}")
+            text_box.configure(state="disabled")
+
+            # Distance
+            IconAndText(
+                frame, "img/location-pin.png", str(round(distance, 1)) + "km", 1, 2, 1
+            )
+            # Cheat Score
+            IconAndText(frame, "img/score.png", str(round(cheat_score, 1)), 2, 2, 1)
+
+            # Details button
+            ctk.CTkButton(
                 master=frame,
-                font=self.normal_font,
-                fg_color="transparent",
+                text="",
                 text_color=TEXT_COLOR,
-                text=f"Item: {item}",
-            ).grid(column=1, row=1, columnspan=2, sticky="nsew")
+                fg_color=MEAL_OPTION_BG_COLOR,
+                hover_color=BORDER_COLOR,
+                command=self.button_click,
+                image=self.btn_img,
+            ).grid(column=3, row=0, rowspan=3, sticky="nsew")
 
             # Spacer
             ctk.CTkFrame(master=self, fg_color="transparent", height=5).pack(fill="x")
+
+    def button_click(self):
+        pass
