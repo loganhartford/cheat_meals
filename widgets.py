@@ -5,13 +5,13 @@ from PIL import Image
 
 
 class IconAndText(ctk.CTkFrame):
-    def __init__(self, parent, icon_path, text, col, row, colspan):
+    def __init__(self, parent, img, label_text, col, row, colspan):
         super().__init__(master=parent, fg_color="transparent")
         self.grid(
             column=col,
             row=row,
             columnspan=colspan,
-            sticky="w",
+            sticky="s",
             padx=(5, 0),
             pady=(5, 0),
         )
@@ -20,18 +20,34 @@ class IconAndText(ctk.CTkFrame):
         self.normal_font = ctk.CTkFont(family=FAMILY, size=14)
 
         # Data
-        brand_img = Image.open(icon_path)
+        self.ctk_img = ctk.CTkImage(
+            light_image=img,
+            dark_image=img,
+            size=(14, 14),
+        )
 
         # Layout
         self.rowconfigure(0, weight=1, uniform="a")
         self.columnconfigure(0, weight=1, uniform="a")
-        self.columnconfigure(1, weight=8, uniform="a")
+        self.columnconfigure(1, weight=2 * colspan, uniform="a")
 
-        StaticImage(self, brand_img, MEAL_OPTION_BG_COLOR, 0, 0, height=20, width=20)
+        # Img button
+        btn = ctk.CTkButton(
+            master=self,
+            text="",
+            text_color=TEXT_COLOR,
+            fg_color="transparent",
+            hover=False,
+            image=self.ctk_img,
+        )
+        btn.grid(column=0, row=0, rowspan=3, sticky="nsew")
+        btn.configure(cursor="arrow")
+
         ctk.CTkLabel(
             master=self,
             font=self.normal_font,
             fg_color="transparent",
             text_color=TEXT_COLOR,
-            text=text,
-        ).grid(column=1, row=0, sticky="w", padx=(5, 0))
+            text=label_text,
+            anchor="w",
+        ).grid(column=1, row=0, sticky="nsew", padx=(5, 0))

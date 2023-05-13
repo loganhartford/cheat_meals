@@ -26,10 +26,12 @@ class App(ctk.CTk):
         self.cheat_score = ctk.DoubleVar()
         self.cheat_score.set(5.0)
         self.meal_data = ctk.StringVar()
+        self.data_display_num = ctk.IntVar()
+        self.data_display_num.set(-1)
 
         # Initial version
         self.version = DesktopVersion(
-            self, self.logo_png, self.cheat_score, self.meal_data
+            self, self.logo_png, self.cheat_score, self.meal_data, self.data_display_num
         )
 
         # States
@@ -59,7 +61,11 @@ class App(ctk.CTk):
             )
         else:
             self.version = DesktopVersion(
-                self, self.logo_png, self.cheat_score, self.meal_data
+                self,
+                self.logo_png,
+                self.cheat_score,
+                self.meal_data,
+                self.data_display_num,
             )
 
     def title_bar_color(self, color):
