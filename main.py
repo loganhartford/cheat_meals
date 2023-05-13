@@ -3,6 +3,8 @@ from settings import *
 import customtkinter as ctk
 from versions import MobileVersion, DesktopVersion
 from PIL import Image
+from get_images import download_image
+from os import remove
 
 # For setting the title bar color on widnows
 try:
@@ -20,6 +22,10 @@ class App(ctk.CTk):
         self.maxsize(1920, 844)  # iPhone 12 Pro height
         self.title("")
         self.iconbitmap("icons/empty.ico")
+
+        # This api responds quicker after it has been called once by the program
+        img_path = download_image("circle", "temp", "temp_img")
+        remove(img_path)
 
         # Data
         self.logo_png = Image.open("img/logo.png")

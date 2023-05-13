@@ -1,6 +1,8 @@
 from google_images_search import GoogleImagesSearch
 from constants import CUSSTOM_SEARCH_API_KEY, CX_ID
 
+import pandas as pd
+
 
 def download_image(query, save_path, img_name):
     gis = GoogleImagesSearch(CUSSTOM_SEARCH_API_KEY, CX_ID)
@@ -17,4 +19,9 @@ def download_image(query, save_path, img_name):
 
 
 if __name__ == "__main__":
-    download_image("mcdonalds big mac", "temp", "big mac")
+    # download all logos from data set
+    df = pd.read_csv("fastfood.csv")
+    names = df["restaurant"].unique()
+    print(names)
+    for name in names:
+        print(download_image(name + " logo png", "logos", name.lower()))

@@ -1,26 +1,61 @@
-import tkinter as tk
+import matplotlib.pyplot as plt
+import numpy as np
 
-# Create the master object
-master = tk.Tk()
+# Define the daily recommended value for each nutrient
+# These values will depend on the nutrient and the age/gender of the individual
+# For this example, we'll use some arbitrary values
+daily_values = {
+    "protein": 50,
+    "fat": 65,
+    "carbs": 300,
+    "fiber": 25,
+    "sugar": 50,
+    "sodium": 2300,
+}
 
-# Create a spinbox widget
-spinbox_1 = tk.Spinbox(master, values=("Python", "Java", "C++"))
+# Define the nutrient values for the food
+# These values would come from the nutrition API or database
+# For this example, we'll use some arbitrary values
+nutrient_values = {
+    "protein": 30,
+    "fat": 15,
+    "carbs": 60,
+    "fiber": 10,
+    "sugar": 20,
+    "sodium": 800,
+}
 
-# And a label for it
-label_1 = tk.Label(master, text="Language")
+# Calculate the percentage of daily value for each nutrient
+percent_daily_values = {
+    k: v / daily_values[k] * 100 for k, v in nutrient_values.items()
+}
 
-# Create another spinbox widget
-spinbox_2 = tk.Spinbox(master, from_=1, to=3)
+# Define the colors for each nutrient
+# These could be customized depending on the application
+colors = {
+    "protein": "green",
+    "fat": "red",
+    "carbs": "orange",
+    "fiber": "brown",
+    "sugar": "yellow",
+    "sodium": "gray",
+}
 
-# And a label for it
-label_2 = tk.Label(master, text="Value")
+# Create the horizontal bar chart
+fig, ax = plt.subplots(figsize=(8, 4))
+y_pos = np.arange(len(percent_daily_values))
+bars = ax.barh(y_pos, percent_daily_values.values(), align="center")
+ax.set_yticks(y_pos)
+ax.set_yticklabels(percent_daily_values.keys())
+ax.set_xlabel("Percentage of Daily Value")
+ax.set_xlim([0, 100])
 
-# Use the grid geometry manager to put the widgets in the respective position
-label_1.grid(row=0, column=0)
-spinbox_1.grid(row=0, column=1)
+# Set the color of each bar based on the nutrient
+for i, nutrient in enumerate(percent_daily_values.keys()):
+    bars[i].set_color(colors[nutrient])
 
-label_2.grid(row=1, column=0)
-spinbox_2.grid(row=1, column=1)
+# Add the percentage values to the bars
+for i, v in enumerate(percent_daily_values.values()):
+    ax.text(v + 2, i, f"{v:.0f}%", color=colors[list(percent_daily_values.keys())[i]])
 
-# The application mainloop
-tk.mainloop()
+plt.show()

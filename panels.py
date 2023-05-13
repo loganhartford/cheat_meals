@@ -5,7 +5,7 @@ from data import get_cheat_meals
 from errors import ErrorMesage
 import json
 from PIL import Image, ImageTk
-from widgets import IconAndText
+from widgets import IconAndText, DisplayTextBox, MacroWidget
 from get_images import download_image
 from os import remove
 import threading
@@ -274,7 +274,7 @@ class MealOptionsPanel(ctk.CTkScrollableFrame):
 
             query = brand + " " + item
             # item_img_path = download_image(query, "temp", "temp_img")
-            item_img_path = "img/logo.png"
+            item_img_path = "logos/" + brand.lower() + ".png"
             item_img = Image.open(item_img_path)
             StaticImage(
                 frame,
@@ -297,19 +297,15 @@ class MealOptionsPanel(ctk.CTkScrollableFrame):
                 colspan=2,
             )
             # Meal Item
-            text_box = ctk.CTkTextbox(
-                master=frame,
+            DisplayTextBox(
+                parent=frame,
+                text=item,
                 font=self.normal_font,
-                fg_color="transparent",
-                border_width=0,
-                activate_scrollbars=False,
-                text_color=TEXT_COLOR,
-                wrap="word",
-                height=MEAL_OPTION_HEIGHT / 3,
+                col=1,
+                row=1,
+                colspan=2,
+                padx=(12, 0),
             )
-            text_box.grid(column=1, row=1, columnspan=2, sticky="nsew", padx=(12, 0))
-            text_box.insert("0.0", f"{item}")
-            text_box.configure(state="disabled")
 
             # Distance
             IconAndText(
@@ -357,7 +353,6 @@ class MealOptionsPanel(ctk.CTkScrollableFrame):
 
     def button_click(self, event, num):
         self.data_display_num.set(num)
-        print(self.data_display_num.get())
 
 
 class DataDisplayPanel(ctk.CTkFrame):
@@ -367,24 +362,185 @@ class DataDisplayPanel(ctk.CTkFrame):
             fg_color="transparent",
         )
         self.grid(
-            column=col,
-            row=row,
-            columnspan=colspan,
-            sticky="nsew",
-            pady=10,
-            padx=(10, 0),
+            column=col, row=row, columnspan=colspan, sticky="nsew", pady=15, padx=15
         )
+
+        # Fonts
+        self.item_font = ctk.CTkFont(family=FAMILY, size=18, weight="bold")
+        self.title_font = ctk.CTkFont(family=FAMILY, size=28, weight="bold")
 
         # Data
         self.meal_data = meal_data
         self.data_display_num = data_display_num
-
         self.data_display_num.trace("w", self.update_display)
 
-        self.test_label = ctk.CTkLabel(
-            master=self, text=self.data_display_num.get(), text_color="red"
+        # Layout
+        self.rowconfigure(0, weight=1, uniform="a")
+        self.rowconfigure(1, weight=2, uniform="a")
+        self.rowconfigure((2, 3), weight=6, uniform="a")
+        self.columnconfigure((0, 1, 2), weight=1, uniform="a")
+
+        title_frame = ctk.CTkFrame(master=self, fg_color="transparent")
+        title_frame.grid(column=0, row=0, columnspan=3, sticky="nsew")
+        self.title_label = ctk.CTkLabel(
+            master=title_frame,
+            text="Meal Data",
+            height=30,
+            fg_color="transparent",
+            font=self.title_font,
+            text_color=BUTTON_COLOR,
         )
-        self.test_label.pack()
+        self.title_label.pack(fill="x", padx=(0, 10))
+        ctk.CTkFrame(master=title_frame, fg_color=MEAL_OPTION_HEADER, height=5).pack(
+            fill="x", pady=(0, 10), padx=(0, 10)
+        )
 
     def update_display(self, *args):
-        self.test_label.configure(text=self.data_display_num.get())
+        self.title_label.configure(text="Loading...")
+        self.title_label.update_idletasks()
+
+        # Remove the old widgets
+        self.clear_data_display()
+
+        # Get the data to display
+        current_index = self.data_display_num.get()
+        cheat_meals = json.loads(self.meal_data.get())
+
+        # Destructure the data
+        self.current_meal = cheat_meals[current_index]
+        (
+            brand,
+            item,
+            cals,
+            total_fat,
+            sat_fat,
+            trans_fat,
+            cholesterol,
+            sodium,
+            carbs,
+            fiber,
+            sugar,
+            protein,
+            cheat_score,
+            address,
+            distance,
+            _,
+        ) = self.current_meal
+        try:
+            item = item[: item.index("(")]  # improves search results
+        except:
+            pass
+
+        # Widgets
+        # Item imgage
+        query = brand + " " + item
+        item_img_path = download_image(query, "temp", "temp_img")
+        item_img = Image.open(item_img_path)
+        StaticImage(
+            parent=self,
+            image=item_img,
+            color=BG_COLOR,
+            row=1,
+            col=0,
+        )
+        remove(item_img_path)
+
+        # Item name
+        # ctk.CTkLabel(
+        #     master=self,
+        #     text=item,
+        #     fg_color="red",
+        #     text_color=TEXT_COLOR,
+        #     font=self.item_font,
+        #     anchor="w",
+        # ).grid(column=1, row=1, sticky="nsew")
+        DisplayTextBox(
+            parent=self,
+            text=item,
+            font=self.item_font,
+            col=1,
+            row=1,
+            colspan=1,
+        )
+
+        # Macros
+        macro_frame = ctk.CTkFrame(master=self, fg_color="transparent")
+        # Layout
+        macro_frame.rowconfigure((0, 1, 2, 3), weight=1, uniform="b")
+        macro_frame.columnconfigure(0, weight=9, uniform="b")
+        macro_frame.columnconfigure(1, weight=12, uniform="b")
+
+        MacroWidget(
+            parent=macro_frame,
+            macro_name="Calories: ",
+            value=cals,
+            units="",
+            col=0,
+            row=0,
+        )
+        MacroWidget(
+            parent=macro_frame,
+            macro_name="Protein: ",
+            value=protein,
+            units="g",
+            col=0,
+            row=1,
+        )
+        MacroWidget(
+            parent=macro_frame,
+            macro_name="Carbs: ",
+            value=carbs,
+            units="g",
+            col=0,
+            row=2,
+        )
+        MacroWidget(
+            parent=macro_frame,
+            macro_name="Fat: ",
+            value=total_fat,
+            units="g",
+            col=0,
+            row=3,
+        )
+        MacroWidget(
+            parent=macro_frame,
+            macro_name="Sugar ",
+            value=sugar,
+            units="g",
+            col=1,
+            row=0,
+        )
+        MacroWidget(
+            parent=macro_frame,
+            macro_name="Sodium: ",
+            value=sodium,
+            units="mg",
+            col=1,
+            row=1,
+        )
+        MacroWidget(
+            parent=macro_frame,
+            macro_name="Fiber: ",
+            value=fiber,
+            units="g",
+            col=1,
+            row=2,
+        )
+        MacroWidget(
+            parent=macro_frame,
+            macro_name="Cholesterol: ",
+            value=total_fat,
+            units="mg",
+            col=1,
+            row=3,
+        )
+        macro_frame.grid(column=2, row=1, sticky="nsew")
+
+        # Return header to normal state
+        self.title_label.configure(text="Meal Data")
+        self.title_label.update_idletasks()
+
+    def clear_data_display(self):
+        for widget in self.grid_slaves():
+            if int(widget.grid_info()["row"]) > 0:
+                widget.grid_forget()

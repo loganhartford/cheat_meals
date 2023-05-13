@@ -51,3 +51,47 @@ class IconAndText(ctk.CTkFrame):
             text=label_text,
             anchor="w",
         ).grid(column=1, row=0, sticky="nsew", padx=(5, 0))
+
+
+class DisplayTextBox(ctk.CTkTextbox):
+    def __init__(self, parent, text, font, col, row, colspan, padx=None):
+        super().__init__(
+            master=parent,
+            font=font,
+            fg_color="transparent",
+            border_width=0,
+            activate_scrollbars=False,
+            text_color=TEXT_COLOR,
+            wrap="word",
+            height=0,
+        )
+        self.grid(column=col, row=row, columnspan=colspan, sticky="nsew", padx=padx)
+        self.insert("0.0", f"{text}")
+        self.configure(state="disabled")
+
+
+class MacroWidget(ctk.CTkFrame):
+    def __init__(self, parent, macro_name, value, units, col, row):
+        super().__init__(master=parent, fg_color="transparent")
+        self.grid(column=col, row=row, sticky="nsew")
+
+        # Fonts
+        self.macro_font = ctk.CTkFont(family=FAMILY, size=14, weight="bold")
+        self.value_font = ctk.CTkFont(family=FAMILY, size=14)
+
+        ctk.CTkLabel(
+            master=self,
+            text=macro_name,
+            fg_color="transparent",
+            text_color=TEXT_COLOR,
+            font=self.macro_font,
+            anchor="w",
+        ).pack(side="left")
+        ctk.CTkLabel(
+            master=self,
+            text=str(int(round(value, 0))) + units,
+            fg_color="transparent",
+            text_color=TEXT_COLOR,
+            font=self.value_font,
+            anchor="w",
+        ).pack(side="left")
