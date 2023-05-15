@@ -14,8 +14,10 @@ from matplotlib.font_manager import FontProperties
 from matplotlib.figure import Figure
 import textwrap
 
+DEV_VERSTION = True
 # delete later (return a list)
-import pandas as pd
+if DEV_VERSTION:
+    import pandas as pd
 
 
 class LogoPanel(ctk.CTkFrame):
@@ -174,20 +176,24 @@ class UserInputPanel(ctk.CTkFrame):
         radius = self.radius_input.get()
         cheat_score = round(self.cheat_score.get(), 1)
 
-        # # Verify inputs
-        # for string in user_inputs:
-        #     if string == "":
-        #         ErrorMesage(self, "Please input your locaiton information")
-        #         return
-        # if radius == "Within...":
-        #     ErrorMesage(self, "Please select a search radius.")
-        #     return
+        if not DEV_VERSTION:
+            # Verify inputs
+            for string in user_inputs:
+                if string == "":
+                    ErrorMesage(self, "Please input your locaiton information")
+                    return
+            if radius == "Within...":
+                ErrorMesage(self, "Please select a search radius.")
+                return
 
         full_address = " ".join(user_inputs)
 
         # Get cheat meals
-        # cheat_meals = get_cheat_meals(full_address, cheat_score, radius)
-        cheat_meals = pd.read_csv("cheat_meals.csv").values.tolist()
+        if DEV_VERSTION:
+            cheat_meals = pd.read_csv("cheat_meals.csv").values.tolist()
+        else:
+            cheat_meals = get_cheat_meals(full_address, cheat_score, radius)
+
         self.meal_data.set(json.dumps(cheat_meals).replace("\\n", " "))
 
     def update_display(self, *args):
