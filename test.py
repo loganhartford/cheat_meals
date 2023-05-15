@@ -1,61 +1,46 @@
+import tkinter as tk
 import matplotlib.pyplot as plt
-import numpy as np
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
-# Define the daily recommended value for each nutrient
-# These values will depend on the nutrient and the age/gender of the individual
-# For this example, we'll use some arbitrary values
-daily_values = {
-    "protein": 50,
-    "fat": 65,
-    "carbs": 300,
-    "fiber": 25,
-    "sugar": 50,
-    "sodium": 2300,
-}
+# Create a Tkinter window
+root = tk.Tk()
+root.geometry("500x300")
 
-# Define the nutrient values for the food
-# These values would come from the nutrition API or database
-# For this example, we'll use some arbitrary values
-nutrient_values = {
-    "protein": 30,
-    "fat": 15,
-    "carbs": 60,
-    "fiber": 10,
-    "sugar": 20,
-    "sodium": 800,
-}
+# Create a Figure object and add a subplot
+fig, ax = plt.subplots(figsize=(8, 5))
 
-# Calculate the percentage of daily value for each nutrient
-percent_daily_values = {
-    k: v / daily_values[k] * 100 for k, v in nutrient_values.items()
-}
+# Nutrient labels
+nutrients = ["Protein", "Fat", "Carbohydrates", "Fiber"]
 
-# Define the colors for each nutrient
-# These could be customized depending on the application
-colors = {
-    "protein": "green",
-    "fat": "red",
-    "carbs": "orange",
-    "fiber": "brown",
-    "sugar": "yellow",
-    "sodium": "gray",
-}
+# Recommended daily values (DV)
+dv_values = [50, 70, 300, 25]
 
-# Create the horizontal bar chart
-fig, ax = plt.subplots(figsize=(8, 4))
-y_pos = np.arange(len(percent_daily_values))
-bars = ax.barh(y_pos, percent_daily_values.values(), align="center")
-ax.set_yticks(y_pos)
-ax.set_yticklabels(percent_daily_values.keys())
-ax.set_xlabel("Percentage of Daily Value")
-ax.set_xlim([0, 100])
+# Actual values for the meal
+actual_values = [35, 40, 250, 20]
 
-# Set the color of each bar based on the nutrient
-for i, nutrient in enumerate(percent_daily_values.keys()):
-    bars[i].set_color(colors[nutrient])
+# Bar width
+width = 0.35
 
-# Add the percentage values to the bars
-for i, v in enumerate(percent_daily_values.values()):
-    ax.text(v + 2, i, f"{v:.0f}%", color=colors[list(percent_daily_values.keys())[i]])
+# Create the double bar graph
+ax.bar(range(len(nutrients)), dv_values, width, label="Recommended DV")
+ax.bar([i + width for i in range(len(nutrients))], actual_values, width, label="Actual")
 
-plt.show()
+# Set the x-axis tick positions and labels
+ax.set_xticks([i + width / 2 for i in range(len(nutrients))])
+ax.set_xticklabels(nutrients)
+
+# Set the y-axis label
+ax.set_ylabel("Amount")
+
+# Add a legend
+ax.legend()
+
+# Create a canvas and add the figure to it
+canvas = FigureCanvasTkAgg(fig, master=root)
+canvas.draw()
+
+# Add the canvas to the Tkinter window
+canvas.get_tk_widget().grid(row=0, column=0)
+
+# Run the Tkinter event loop
+root.mainloop()

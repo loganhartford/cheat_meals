@@ -12,8 +12,6 @@ class IconAndText(ctk.CTkFrame):
             row=row,
             columnspan=colspan,
             sticky="s",
-            padx=(5, 0),
-            pady=(5, 0),
         )
 
         # Fonts
@@ -50,7 +48,7 @@ class IconAndText(ctk.CTkFrame):
             text_color=TEXT_COLOR,
             text=label_text,
             anchor="w",
-        ).grid(column=1, row=0, sticky="nsew", padx=(5, 0))
+        ).grid(column=1, row=0, sticky="nsew")
 
 
 class DisplayTextBox(ctk.CTkTextbox):

@@ -21,7 +21,13 @@ import pandas as pd
 class LogoPanel(ctk.CTkFrame):
     def __init__(self, parent, logo_img, col, row):
         super().__init__(master=parent, fg_color="transparent")
-        self.grid(column=col, row=row, sticky="nsew", pady=10, padx=10)
+        self.grid(
+            column=col,
+            row=row,
+            sticky="nsew",
+            pady=(HEADER_PADY_TOP - 7, 0),
+            padx=(5, 0),
+        )
 
         # Layout
         self.columnconfigure(0, weight=1, uniform="a")
@@ -35,14 +41,19 @@ class UserInputPanel(ctk.CTkFrame):
     def __init__(self, parent, cheat_score, meal_data, col, row, colspan):
         super().__init__(master=parent, fg_color="transparent")
         self.grid(
-            column=col, row=row, columnspan=colspan, sticky="nsew", pady=10, padx=10
+            column=col,
+            row=row,
+            columnspan=colspan,
+            sticky="nsew",
+            pady=(HEADER_PADY_TOP, HEADER_PADY_BOT),
+            padx=(0, 10),
         )
 
         # Fonts
-        self.entry_font = ctk.CTkFont(family=FAMILY, size=20)
+        self.entry_font = ctk.CTkFont(family=FAMILY, size=16)
         self.dropdown_font = ctk.CTkFont(family=FAMILY, size=14)
         self.cheat_score_font = ctk.CTkFont(family=FAMILY, size=28, weight="bold")
-        self.button_font = ctk.CTkFont(family=FAMILY, size=20, weight="bold")
+        self.button_font = ctk.CTkFont(family=FAMILY, size=18, weight="bold")
 
         # Data
         self.cheat_score = cheat_score
@@ -52,14 +63,7 @@ class UserInputPanel(ctk.CTkFrame):
         self.meal_data = meal_data
 
         # Layout
-        self.columnconfigure(
-            (
-                0,
-                1,
-            ),
-            weight=3,
-            uniform="a",
-        )
+        self.columnconfigure((0, 1), weight=3, uniform="a")
         self.columnconfigure((2, 3, 4), weight=2, uniform="a")
         self.rowconfigure((0, 1), weight=1, uniform="a")
 
@@ -72,6 +76,7 @@ class UserInputPanel(ctk.CTkFrame):
             font=self.entry_font,
             placeholder_text="Street Address",
             border_color=BORDER_COLOR,
+            border_width=BORDER_WIDTH,
         )
         self.address_entry.grid(
             column=0, row=0, columnspan=2, sticky="nsew", pady=(0, 2.5), padx=5
@@ -83,6 +88,7 @@ class UserInputPanel(ctk.CTkFrame):
             font=self.entry_font,
             placeholder_text="City",
             border_color=BORDER_COLOR,
+            border_width=BORDER_WIDTH,
         )
         self.city_entry.grid(
             column=0, row=1, sticky="nsew", pady=(2.5, 0), padx=(5, 2.5)
@@ -94,6 +100,7 @@ class UserInputPanel(ctk.CTkFrame):
             font=self.entry_font,
             placeholder_text="Province/State",
             border_color=BORDER_COLOR,
+            border_width=BORDER_WIDTH,
         )
         self.province_entry.grid(
             column=1, row=1, sticky="nsew", pady=(2.5, 0), padx=(2.5, 5)
@@ -223,7 +230,7 @@ class MealOptionsPanel(ctk.CTkScrollableFrame):
         )
         self.establishment_img = Image.open("img/restaurant.png")
         self.location_img = Image.open("img/location-pin.png")
-        self.score_img = Image.open("img/score.png")
+        self.score_img = Image.open("img/logo-icon.png")
 
         self.title_label = ctk.CTkLabel(
             self,
@@ -382,6 +389,17 @@ class DataDisplayPanel(ctk.CTkFrame):
         self.meal_data = meal_data
         self.data_display_num = data_display_num
         self.data_display_num.trace("w", self.update_display)
+        self.daily_values_dict = {
+            "Calories": [200, "cals/10"],
+            "Fat": [65, "g"],
+            "Saturated Fat": [20, "g"],
+            "Cholesterol": [200, "mg"],
+            "Sodium": [240, "mg/10"],
+            "Carbs": [300, "g"],
+            "Fiber": [25, "g"],
+            "Sugar": [25, "g"],
+            "Protein": [100, "g"],
+        }
 
         # Layout
         self.rowconfigure(0, weight=1, uniform="a")
@@ -484,14 +502,14 @@ class DataDisplayPanel(ctk.CTkFrame):
             column=0,
             row=2,
             sticky="nsew",
-            pady=(DATA_PADY_TOP, DATA_PADY),
+            pady=(DATA_PADY_TOP, 0),
             padx=DATA_PADX,
         )
         self.create_pie_chart_panel(
             parent=pie_frame,
             labels=["Fat", "Protein", "Carbs"],
             values=macros,
-            colors=["#f4a261", "#e76f51", "#2a9d8f"],
+            colors=[ORANGE, RED, GREEN],
         )
 
         # Caloric Density Bar Graph
@@ -501,7 +519,7 @@ class DataDisplayPanel(ctk.CTkFrame):
             row=2,
             columnspan=2,
             sticky="nsew",
-            pady=(DATA_PADY_TOP, DATA_PADY),
+            pady=(DATA_PADY_TOP, 0),
             padx=DATA_PADX,
         )
         caloric_density = cals / (
@@ -511,6 +529,44 @@ class DataDisplayPanel(ctk.CTkFrame):
             parent=cal_density_frame,
             densities=[caloric_density, 4.8, 1.7, 0.6],
             items=[item, "Frozen Pizza", "Potatoe", "Broccoli"],
+        )
+
+        # DV Comparasion Bar Graph
+        dv_frame = ctk.CTkFrame(master=self, fg_color="transparent")
+        dv_frame.grid(
+            column=0,
+            row=3,
+            columnspan=3,
+            sticky="nsew",
+            pady=(0, DATA_PADY_TOP),
+        )
+        actual_values = [
+            cals / 10,
+            total_fat,
+            sat_fat,
+            cholesterol,
+            sodium / 10,
+            carbs,
+            fiber,
+            sugar,
+            protein,
+        ]
+        labels = [
+            "Calories",
+            "Fat",
+            "Saturated Fat",
+            "Cholesterol",
+            "Sodium",
+            "Carbs",
+            "Fiber",
+            "Sugar",
+            "Protein",
+        ]
+        self.create_double_bar_chart_panel(
+            parent=dv_frame,
+            daily_values_dict=self.daily_values_dict,
+            actual_values=actual_values,
+            labels=labels,
         )
 
         # Return header to normal state
@@ -616,7 +672,7 @@ class DataDisplayPanel(ctk.CTkFrame):
     def create_bar_chart_panel(self, parent, densities, items):
         # Create a figure object
         fig = Figure(figsize=(4, 3), dpi=100)
-        fig.subplots_adjust(bottom=0.4)
+        fig.subplots_adjust(bottom=0.2)
 
         # Add a subplot
         ax = fig.add_subplot(111)
@@ -631,11 +687,10 @@ class DataDisplayPanel(ctk.CTkFrame):
         y = densities
 
         # Create the bar chart
-        ax.bar(x, y, color="#e9c46a")
+        ax.bar(x, y, color=YELLOW)
 
         # Set the title and axis labels
         ax.set_title("Caloric Densities", fontproperties=self.fig_title_font)
-        ax.set_xlabel("Food Item")
         ax.set_ylabel("Calories/g")
 
         # Set font properties for labels
@@ -652,16 +707,67 @@ class DataDisplayPanel(ctk.CTkFrame):
 
         canvas.get_tk_widget().pack()
 
+    def create_double_bar_chart_panel(
+        self, parent, daily_values_dict, actual_values, labels
+    ):
+        axis_labels = []
+        daily_values = []
+        for label in labels:
+            axis_labels.append(
+                label.replace(" ", "\n") + "\n" + daily_values_dict[label][1]
+            )
+            daily_values.append(daily_values_dict[label][0])
+
+        # Create a Figure object and add a subplot
+        fig, ax = plt.subplots(figsize=(8, 5))
+        fig.subplots_adjust(bottom=0.2)
+
+        # Bar width
+        width = 0.35
+
+        # Create the double bar graph
+        ax.bar(
+            range(len(axis_labels)),
+            daily_values,
+            width,
+            color=GREEN,
+            label="Recommended DV",
+        )
+        ax.bar(
+            [i + width for i in range(len(axis_labels))],
+            actual_values,
+            width,
+            color=YELLOW,
+            label="Actual",
+        )
+
+        # Set the x-axis tick positions and labels
+        ax.set_xticks([i + width / 2 for i in range(len(axis_labels))])
+        ax.set_xticklabels(axis_labels)
+
+        # Remove graph border
+        ax.spines["right"].set_visible(False)
+        ax.spines["top"].set_visible(False)
+
+        # Set the title and axis labels
+        ax.set_title("Daily Values", fontproperties=self.fig_title_font)
+        ax.set_ylabel("Amount")
+
+        # Set font properties for labels
+        for label in ax.get_xticklabels() + ax.get_yticklabels():
+            label.set_fontproperties(self.tiny_fig_label_font)
+
+        # Add a legend
+        ax.legend()
+
+        # Create a canvas and add the figure to it
+        canvas = FigureCanvasTkAgg(fig, master=parent)
+        canvas.draw()
+
+        # Add the canvas to the Tkinter window
+        canvas.get_tk_widget().pack()
+
     def clear_data_display(self):
         for widget in self.grid_slaves():
             if int(widget.grid_info()["row"]) > 0:
                 widget.grid_forget()
-
-
-""" 
-To Do:
-- Display the DV graph
-- Need to clear previous search when find button is clicked again
-- turn safe search on for the google search api
-- Disable the mobile version
-"""

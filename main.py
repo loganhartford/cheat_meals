@@ -88,3 +88,14 @@ class App(ctk.CTk):
 
 if __name__ == "__main__":
     App()
+
+
+""" 
+To Do:
+- Need to clear previous search when find button is clicked again
+- turn safe search on for the google search api
+- Disable the mobile version
+- Make it work with actuall data
+    - Want the establishment names unchanged in the data that gets sent to the ui
+    - Need to match the output of data to what is being used for testing
+"""
