@@ -303,7 +303,7 @@ class MealOptionsPanel(ctk.CTkScrollableFrame):
                 colspan=2,
             )
             # Meal Item
-            DisplayTextBox(
+            self.display_text = DisplayTextBox(
                 parent=frame,
                 text=item,
                 font=self.normal_font,
@@ -312,6 +312,7 @@ class MealOptionsPanel(ctk.CTkScrollableFrame):
                 colspan=2,
                 padx=(12, 0),
             )
+            self.display_text.update_idletasks()
 
             # Distance
             IconAndText(
@@ -443,8 +444,9 @@ class DataDisplayPanel(ctk.CTkFrame):
 
         # Widgets
         # Item imgage
-        query = brand + " " + item
-        item_img_path = download_image(query, "temp", "temp_img")
+        # query = brand + " " + item
+        # item_img_path = download_image(query, "temp", "temp_img")
+        item_img_path = "logos/" + brand.replace("'", "").lower() + ".png"
         item_img = Image.open(item_img_path)
         StaticImage(
             parent=self,
@@ -453,7 +455,6 @@ class DataDisplayPanel(ctk.CTkFrame):
             row=1,
             col=0,
         )
-        remove(item_img_path)
 
         # Item name
         # ctk.CTkLabel(
