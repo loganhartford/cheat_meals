@@ -280,10 +280,7 @@ class MealOptionsPanel(ctk.CTkScrollableFrame):
             frame.rowconfigure((0, 1, 2), weight=1, uniform="a")
 
             # Widgets
-
-            query = brand + " " + item
-            # item_img_path = download_image(query, "temp", "temp_img")
-            item_img_path = "logos/" + brand.lower() + ".png"
+            item_img_path = "logos/" + brand.replace("'", "").lower() + ".png"
             item_img = Image.open(item_img_path)
             StaticImage(
                 frame,

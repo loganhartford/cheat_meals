@@ -149,7 +149,7 @@ def create_locations_df(lat, lng, query, radius):
     df["Distance in Km"] = generate_distance_col(df, lat, lng)
     df.sort_values(by=["Distance in Km"])
     df = keep_only_closest_location(df)
-    df["Name"] = clean_restaurant_name(df)
+    # df["Name"] = clean_restaurant_name(df)
     return df
 
 
@@ -162,7 +162,19 @@ def get_restaurant_nutrition_data(restaurant_locations_df):
     Returns:
         pandas.DataFrame: Contains meal items from nearby restaurant locations
     """
-    restaurant_names = restaurant_locations_df["Name"].values.tolist()
+
+    # Want to change the format of the names for later use in the UI
+    clean_restaurant_names = clean_restaurant_name(
+        restaurant_locations_df
+    ).values.tolist()
+    dirty_restaurant_names = restaurant_locations_df["Name"]
+    restaurant_names_dict = {
+        clean_restaurant_names[i]: dirty_restaurant_names[i]
+        for i in range(len(clean_restaurant_names))
+    }
+
+    restaurant_names = clean_restaurant_name(restaurant_locations_df).values.tolist()
+    # restaurant_names = restaurant_locations_df["Name"].values.tolist()
 
     # Using a local dataset for now, will make a db later
     nutrition_df = pd.read_csv("fastfood.csv")
@@ -170,9 +182,13 @@ def get_restaurant_nutrition_data(restaurant_locations_df):
         nutrition_df["restaurant"].str.lower().isin(restaurant_names)
     ]
 
+    # Change out the restaurant names
+    meal_items_df["restaurant"] = meal_items_df["restaurant"].apply(
+        lambda x: restaurant_names_dict.get(x.lower())
+    )
+
     # Anything less than 500 cals is probably not a cheat meal
     meal_items_df = meal_items_df[meal_items_df["calories"] > 500]
-    meal_items_df["restaurant"] = meal_items_df["restaurant"].str.lower()
     return meal_items_df
 
 
@@ -314,7 +330,9 @@ def get_cheat_meals(
 
     # Add additional informationt to the menu items
     menu_items_df["cheat_score"] = create_cheat_score_column(menu_items_df)
+    print(rest_locs_df)
     rest_locs_df = remove_restaurants_without_meals(menu_items_df, rest_locs_df)
+    print(rest_locs_df)
     (
         menu_items_df["address"],
         menu_items_df["distance in km"],
@@ -322,7 +340,7 @@ def get_cheat_meals(
 
     cheat_meals_df = create_cheat_meals_df(cheat_score_target, menu_items_df)
 
-    cheat_meals_df.to_csv("cheat_meals.csv")
+    cheat_meals_df.to_csv("cheat_meals.csv", index=False)
 
     return cheat_meals_df.values.tolist()
 
