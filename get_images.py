@@ -10,6 +10,7 @@ def download_image(query, save_path, img_name):
     _search_params = {
         "q": query,
         "num": 1,
+        "safe": "active",
         "fileType": "jpg|png",
     }
     gis.search(search_params=_search_params, custom_image_name=img_name)

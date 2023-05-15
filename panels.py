@@ -195,7 +195,9 @@ class UserInputPanel(ctk.CTkFrame):
 
 
 class MealOptionsPanel(ctk.CTkScrollableFrame):
-    def __init__(self, parent, meal_data, data_display_num, col, row, colspan):
+    def __init__(
+        self, parent, meal_data, data_display_num, title_label, col, row, colspan
+    ):
         super().__init__(
             master=parent,
             fg_color="transparent",
@@ -220,6 +222,7 @@ class MealOptionsPanel(ctk.CTkScrollableFrame):
         self.meal_data = meal_data
         self.meal_data.trace("w", self.render_meal_options)
         self.data_display_num = data_display_num
+        self.title_label = title_label
 
         # Images
         img = Image.open("img/right-arrow.png")
@@ -232,20 +235,9 @@ class MealOptionsPanel(ctk.CTkScrollableFrame):
         self.location_img = Image.open("img/location-pin.png")
         self.score_img = Image.open("img/logo-icon.png")
 
-        self.title_label = ctk.CTkLabel(
-            self,
-            text="Meal Options",
-            height=30,
-            fg_color="transparent",
-            font=self.title_font,
-            text_color=BUTTON_COLOR,
-        )
-        self.title_label.pack(fill="x", padx=(0, 10))
-        ctk.CTkFrame(master=self, fg_color=MEAL_OPTION_HEADER, height=5).pack(
-            fill="x", pady=(0, 10), padx=(0, 10)
-        )
-
     def render_meal_options(self, *args):
+        for child in self.winfo_children():
+            child.destroy()
         self.title_label.configure(text="Loading...")
         self.title_label.update_idletasks()
 
@@ -367,7 +359,9 @@ class MealOptionsPanel(ctk.CTkScrollableFrame):
 
 
 class DataDisplayPanel(ctk.CTkFrame):
-    def __init__(self, parent, meal_data, data_display_num, col, row, colspan):
+    def __init__(
+        self, parent, meal_data, data_display_num, title_label, col, row, colspan
+    ):
         super().__init__(
             master=parent,
             fg_color="transparent",
@@ -400,27 +394,13 @@ class DataDisplayPanel(ctk.CTkFrame):
             "Sugar": [25, "g"],
             "Protein": [100, "g"],
         }
+        self.title_label = title_label
 
         # Layout
         self.rowconfigure(0, weight=1, uniform="a")
         self.rowconfigure(1, weight=2, uniform="a")
         self.rowconfigure((2, 3), weight=6, uniform="a")
         self.columnconfigure((0, 1, 2), weight=1, uniform="a")
-
-        title_frame = ctk.CTkFrame(master=self, fg_color="transparent")
-        title_frame.grid(column=0, row=0, columnspan=3, sticky="nsew")
-        self.title_label = ctk.CTkLabel(
-            master=title_frame,
-            text="Meal Data",
-            height=30,
-            fg_color="transparent",
-            font=self.title_font,
-            text_color=BUTTON_COLOR,
-        )
-        self.title_label.pack(fill="x", padx=(0, 10))
-        ctk.CTkFrame(master=title_frame, fg_color=MEAL_OPTION_HEADER, height=5).pack(
-            fill="x", pady=(0, 10), padx=(0, 10)
-        )
 
     def update_display(self, *args):
         self.title_label.configure(text="Loading...")

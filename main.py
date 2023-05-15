@@ -43,7 +43,7 @@ class App(ctk.CTk):
         # States
         self.width_break = 700
         self.mobile_version_bool = ctk.BooleanVar(value=False)
-        self.bind("<Configure>", self.check_size)
+        # self.bind("<Configure>", self.check_size) # uncomment to allow switchin to mobile version
         self.mobile_version_bool.trace("w", self.change_size)
 
         self.protocol("WM_DELETE_WINDOW", self.quit)
@@ -92,9 +92,6 @@ if __name__ == "__main__":
 
 """ 
 To Do:
-- Need to clear previous search when find button is clicked again
-- turn safe search on for the google search api
-- Disable the mobile version
 - Make it work with actuall data
     - Want the establishment names unchanged in the data that gets sent to the ui
     - Need to match the output of data to what is being used for testing
