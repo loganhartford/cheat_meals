@@ -46,6 +46,7 @@ class App(ctk.CTk):
         self.bind("<Configure>", self.check_size)
         self.mobile_version_bool.trace("w", self.change_size)
 
+        self.protocol("WM_DELETE_WINDOW", self.quit)
         self.mainloop()
 
     def check_size(self, event):

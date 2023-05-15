@@ -8,7 +8,11 @@ from PIL import Image, ImageTk
 from widgets import IconAndText, DisplayTextBox, MacroWidget
 from get_images import download_image
 from os import remove
-import threading
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from matplotlib.font_manager import FontProperties
+from matplotlib.figure import Figure
+import textwrap
 
 # delete later (return a list)
 import pandas as pd
@@ -368,6 +372,11 @@ class DataDisplayPanel(ctk.CTkFrame):
         # Fonts
         self.item_font = ctk.CTkFont(family=FAMILY, size=18, weight="bold")
         self.title_font = ctk.CTkFont(family=FAMILY, size=28, weight="bold")
+        self.fig_title_font = FontProperties(
+            family="sans-serif", size=14, weight="bold"
+        )
+        self.fig_label_font = FontProperties(family="sans-serif", size=12)
+        self.tiny_fig_label_font = FontProperties(family="sans-serif", size=8)
 
         # Data
         self.meal_data = meal_data
@@ -464,6 +473,53 @@ class DataDisplayPanel(ctk.CTkFrame):
         )
 
         # Macros
+        self.create_macro_panel(
+            cals, protein, carbs, total_fat, sugar, sodium, fiber, cholesterol
+        )
+
+        # Macros Pie Chart
+        macros = [total_fat * 9 / cals, protein * 4 / cals, carbs * 4 / cals]
+        pie_frame = ctk.CTkFrame(master=self, fg_color="transparent")
+        pie_frame.grid(
+            column=0,
+            row=2,
+            sticky="nsew",
+            pady=(DATA_PADY_TOP, DATA_PADY),
+            padx=DATA_PADX,
+        )
+        self.create_pie_chart_panel(
+            parent=pie_frame,
+            labels=["Fat", "Protein", "Carbs"],
+            values=macros,
+            colors=["#f4a261", "#e76f51", "#2a9d8f"],
+        )
+
+        # Caloric Density Bar Graph
+        cal_density_frame = ctk.CTkFrame(master=self, fg_color="transparent")
+        cal_density_frame.grid(
+            column=1,
+            row=2,
+            columnspan=2,
+            sticky="nsew",
+            pady=(DATA_PADY_TOP, DATA_PADY),
+            padx=DATA_PADX,
+        )
+        caloric_density = cals / (
+            total_fat + protein + carbs
+        )  # Not correct but fine for this application
+        self.create_bar_chart_panel(
+            parent=cal_density_frame,
+            densities=[caloric_density, 4.8, 1.7, 0.6],
+            items=[item, "Frozen Pizza", "Potatoe", "Broccoli"],
+        )
+
+        # Return header to normal state
+        self.title_label.configure(text="Meal Data")
+        self.title_label.update_idletasks()
+
+    def create_macro_panel(
+        self, cals, protein, carbs, total_fat, sugar, sodium, fiber, cholesterol
+    ):
         macro_frame = ctk.CTkFrame(master=self, fg_color="transparent")
         # Layout
         macro_frame.rowconfigure((0, 1, 2, 3), weight=1, uniform="b")
@@ -529,18 +585,83 @@ class DataDisplayPanel(ctk.CTkFrame):
         MacroWidget(
             parent=macro_frame,
             macro_name="Cholesterol: ",
-            value=total_fat,
+            value=cholesterol,
             units="mg",
             col=1,
             row=3,
         )
         macro_frame.grid(column=2, row=1, sticky="nsew")
 
-        # Return header to normal state
-        self.title_label.configure(text="Meal Data")
-        self.title_label.update_idletasks()
+    def create_pie_chart_panel(self, parent, labels, values, colors):
+        # Create a Figure object and add a subplot
+        fig = plt.figure(figsize=(5, 5))
+        ax = fig.add_subplot(111)
+
+        # Create the pie chart and add it to the subplot
+        ax.pie(values, labels=labels, colors=colors, autopct="%1.1f%%")
+        ax.axis("equal")
+        ax.set_title("Calorie Contributions", fontproperties=self.fig_title_font)
+
+        # Set font properties for labels
+        for label in ax.get_xticklabels() + ax.get_yticklabels():
+            label.set_fontproperties(self.fig_label_font)
+
+        # Create a canvas and add the figure to it
+        canvas = FigureCanvasTkAgg(fig, master=parent)
+        canvas.draw()
+
+        # Add the canvas to the CustomTkinter window using grid layout
+        canvas.get_tk_widget().pack()
+
+    def create_bar_chart_panel(self, parent, densities, items):
+        # Create a figure object
+        fig = Figure(figsize=(4, 3), dpi=100)
+        fig.subplots_adjust(bottom=0.4)
+
+        # Add a subplot
+        ax = fig.add_subplot(111)
+
+        # Wrap label text
+        for i, item in enumerate(items):
+            items[i] = "\n".join(textwrap.wrap(item, 12))
+
+        # Data for the bar chart
+        x = items
+        x_ticks = range(len(x))
+        y = densities
+
+        # Create the bar chart
+        ax.bar(x, y, color="#e9c46a")
+
+        # Set the title and axis labels
+        ax.set_title("Caloric Densities", fontproperties=self.fig_title_font)
+        ax.set_xlabel("Food Item")
+        ax.set_ylabel("Calories/g")
+
+        # Set font properties for labels
+        for label in ax.get_xticklabels() + ax.get_yticklabels():
+            label.set_fontproperties(self.tiny_fig_label_font)
+
+        # Remove graph border
+        ax.spines["right"].set_visible(False)
+        ax.spines["top"].set_visible(False)
+
+        # Create a canvas to display the figure
+        canvas = FigureCanvasTkAgg(fig, master=parent)
+        canvas.draw()
+
+        canvas.get_tk_widget().pack()
 
     def clear_data_display(self):
         for widget in self.grid_slaves():
             if int(widget.grid_info()["row"]) > 0:
                 widget.grid_forget()
+
+
+""" 
+To Do:
+- Display the DV graph
+- Need to clear previous search when find button is clicked again
+- turn safe search on for the google search api
+- Disable the mobile version
+"""
