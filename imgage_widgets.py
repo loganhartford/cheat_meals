@@ -3,6 +3,8 @@ from PIL import ImageTk
 
 
 class StaticImage(Canvas):
+    """Creates a canvas and places and image on it and attached methods to resizing events to keeps the image properly sized."""
+
     def __init__(
         self, parent, image, color, row, col, rowspan=1, height=None, width=None
     ):
@@ -17,7 +19,7 @@ class StaticImage(Canvas):
         )
         self.grid(column=col, row=row, rowspan=rowspan, sticky="nsew")
 
-        # Image ratio
+        # Image data
         self.image = image
         self.image_tk = ImageTk.PhotoImage(self.image)
         self.image_ratio = self.image.size[0] / self.image.size[1]
@@ -32,12 +34,13 @@ class StaticImage(Canvas):
         self.bind("<Configure>", self.resize)
 
     def resize(self, event=None):
+        """Called whenever the image is resized. Looks at the aspect ratio of the canvas and sized the image to correctly fit the canvas."""
         canvas_ratio = event.width / event.height
 
         self.canvas_width = event.width
         self.canvas_height = event.height
 
-        # Resize
+        # Resize image
         if canvas_ratio > self.image_ratio:
             self.image_height = int(self.canvas_height)
             self.image_width = int(self.image_height * self.image_ratio)
@@ -48,6 +51,7 @@ class StaticImage(Canvas):
         self.update_image()
 
     def update_image(self):
+        """Deletes the current image and replaces with the a resized image."""
         self.delete("all")
         resized_image = self.image.resize((self.image_width, self.image_height))
         self.image_tk = ImageTk.PhotoImage(resized_image)

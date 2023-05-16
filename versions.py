@@ -3,6 +3,13 @@ from panels import *
 
 
 class MobileVersion(CTkFrame):
+    """This class is used to display the mobile version of the application.
+    It is currently useless as I have not have time to build it out.
+
+    Args:
+        CTkFrame (_type_): _description_
+    """
+
     def __init__(self, parent, logo_img, cheat_score, meal_data):
         super().__init__(master=parent, fg_color="transparent")
         self.pack(expand=True, fill="both")
@@ -17,7 +24,18 @@ class MobileVersion(CTkFrame):
 
 
 class DesktopVersion(CTkFrame):
+    """This class is used to display the desktop (default) version of the application."""
+
     def __init__(self, parent, logo_img, cheat_score, meal_data, data_display_num):
+        """init
+
+        Args:
+            parent (tkinter window or frame):
+            logo_img (PIL Image): Application logo
+            cheat_score (DoubleVar): Current cheat score set my the slider
+            meal_data (StringVar): Search results stored as a JSON string
+            data_display_num (int): Controls which search result is being displayed in the data panel
+        """
         super().__init__(master=parent, fg_color="transparent")
         self.pack(expand=True, fill="both")
 
@@ -46,6 +64,17 @@ class DesktopVersion(CTkFrame):
         )
 
     def create_header(self, heading, col, row, colspan):
+        """Creates a header section composed of a labels and a frames used to underline the label
+
+        Args:
+            heading (str): heading text
+            col (int):
+            row (int):
+            colspan (int):
+
+        Returns:
+            CTkLabel: returns the label so it can stored and updated in other parts of the application
+        """
         # Meal Options Header
         options_header_frame = ctk.CTkFrame(self, fg_color="transparent")
         options_header_frame.grid(

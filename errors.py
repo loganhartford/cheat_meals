@@ -3,6 +3,12 @@ from settings import *
 
 
 class ErrorMesage(CTkMessagebox):
+    """Displays an pop up window with and error message
+
+    Args:
+        CTkMessagebox (_type_): _description_
+    """
+
     def __init__(self, parent, error_text):
         super().__init__(
             master=parent,

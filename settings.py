@@ -1,11 +1,10 @@
+# User interface settings
+
 # Colors
 BG_COLOR = "#FFF"
 DROP_DOWN_BG_COLOR = "#EEE"
 TEXT_COLOR = "#444"
 BORDER_COLOR = "#DDD"
-# BUTTON_COLOR = "#ffa94d"
-# BUTTON_HOVER_COLOR = "#ffc382"
-# MEAL_OPTION_HEADER = "#ffcb94"
 BUTTON_COLOR = "#f4a261"
 BUTTON_HOVER_COLOR = "#f5ab71"
 MEAL_OPTION_HEADER = "#f6b581"

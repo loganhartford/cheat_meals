@@ -5,6 +5,16 @@ import pandas as pd
 
 
 def download_image(query, save_path, img_name):
+    """Searches google images for a match to the query, downloads it and return the save path.
+
+    Args:
+        query (str): google images search query
+        save_path (str): gile path string
+        img_name (str): gile name
+
+    Returns:
+        str: return the relative path where the image was downloaded
+    """
     gis = GoogleImagesSearch(CUSSTOM_SEARCH_API_KEY, CX_ID)
 
     _search_params = {
@@ -20,7 +30,7 @@ def download_image(query, save_path, img_name):
 
 
 if __name__ == "__main__":
-    # download all logos from data set
+    # download all logos from the data set
     df = pd.read_csv("fastfood.csv")
     names = df["restaurant"].unique()
     print(names)
