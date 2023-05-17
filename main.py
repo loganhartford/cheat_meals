@@ -104,4 +104,7 @@ if __name__ == "__main__":
 
 """ 
 To Do:
+- Test the app
+    - Put in 5 different locations and see if it breaks
+    - Test all the input verifications
 """

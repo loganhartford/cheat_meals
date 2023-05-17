@@ -177,7 +177,7 @@ def get_restaurant_nutrition_data(restaurant_locations_df):
     # restaurant_names = restaurant_locations_df["Name"].values.tolist()
 
     # Using a local dataset for now, will make a db later
-    nutrition_df = pd.read_csv("fastfood.csv")
+    nutrition_df = pd.read_csv("data/fastfood.csv")
     meal_items_df = nutrition_df[
         nutrition_df["restaurant"].str.lower().isin(restaurant_names)
     ]
@@ -340,7 +340,7 @@ def get_cheat_meals(
 
     cheat_meals_df = create_cheat_meals_df(cheat_score_target, menu_items_df)
 
-    cheat_meals_df.to_csv("cheat_meals.csv", index=False)
+    cheat_meals_df.to_csv("data/cheat_meals.csv", index=False)
 
     return cheat_meals_df.values.tolist()
 
