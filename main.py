@@ -19,7 +19,6 @@ class App(ctk.CTk):
         self.title_bar_color(BG_COLOR)
         self.geometry("1200x844")
         self.minsize(375, 667)  # iPhone SE height
-        self.maxsize(1920, 844)  # iPhone 12 Pro height
         self.title("")
         self.iconbitmap("icons/empty.ico")
 

@@ -5,8 +5,7 @@ from settings import *
 class ErrorMesage(CTkMessagebox):
     """Displays an pop up window with and error message
 
-    Args:
-        CTkMessagebox (_type_): _description_
+    Pass in a string containing an error message.
     """
 
     def __init__(self, parent, error_text):

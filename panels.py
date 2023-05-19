@@ -12,7 +12,7 @@ from matplotlib.font_manager import FontProperties
 from matplotlib.figure import Figure
 import textwrap
 
-DEV_VERSTION = True  # Disalbes some app features for faster development
+DEV_VERSTION = False  # Disalbes some app features for faster development
 if DEV_VERSTION:
     import pandas as pd
 
@@ -51,6 +51,7 @@ class UserInputPanel(ctk.CTkFrame):
             pady=(HEADER_PADY_TOP, HEADER_PADY_BOT),
             padx=(0, 10),
         )
+        self.parent = parent
 
         # Fonts
         self.entry_font = ctk.CTkFont(family=FAMILY, size=16)
@@ -171,36 +172,46 @@ class UserInputPanel(ctk.CTkFrame):
 
     def button_click(self):
         """Called whenever the find button is clicked"""
-        # Store user inputs
-        user_inputs = [
-            self.address_entry.get(),
-            self.city_entry.get(),
-            self.province_entry.get(),
-        ]
-        radius = self.radius_input.get()
-        cheat_score = round(self.cheat_score.get(), 1)
-
         if not DEV_VERSTION:
+            # Store user inputs
+            user_inputs = [
+                self.address_entry.get(),
+                self.city_entry.get(),
+                self.province_entry.get(),
+            ]
+            radius = self.radius_input.get()
+            radius = int(radius[: radius.index("km")]) * 1000
+            cheat_score = round(self.cheat_score.get(), 1)
             # Verify inputs
             for string in user_inputs:
                 if string == "":
-                    ErrorMesage(self, "Please input your locaiton information")
+                    ErrorMesage(self.parent, "Please input your locaiton information")
                     return
             if radius == "Within...":
-                ErrorMesage(self, "Please select a search radius.")
+                ErrorMesage(self.parent, "Please select a search radius.")
                 return
 
-        # Create a string for the places api
-        full_address = " ".join(user_inputs)
+            # Create a string for the places api
+            full_address = " ".join(user_inputs)
 
         # Get cheat meals
         if DEV_VERSTION:
-            cheat_meals = pd.read_csv("cheat_meals.csv").values.tolist()
+            # cheat_meals = pd.read_csv("cheat_meals.csv").values.tolist()
+            cheat_meals = []
         else:
+            # Returns a nested list of meal options
+            print("radius:", radius)
             cheat_meals = get_cheat_meals(full_address, cheat_score, radius)
 
-        # Store the search results as a JSON string
-        self.meal_data.set(json.dumps(cheat_meals).replace("\\n", " "))
+        # Limit the number of meals iniitially loaded since pagination is not implemented
+        if len(cheat_meals) > 15:
+            cheat_meals = cheat_meals[:15]
+
+        if len(cheat_meals) > 0:
+            # Store the search results as a JSON string
+            self.meal_data.set(json.dumps(cheat_meals).replace("\\n", " "))
+        else:
+            ErrorMesage(self.parent, "No meals found!")
 
     def update_display(self, *args):
         """Updates the cheat score display label with the current cheat score indicated by the slidder. This is called whenever the slider is moved."""
@@ -296,17 +307,18 @@ class MealOptionsPanel(ctk.CTkScrollableFrame):
 
             # Widgets
             # Brand logo
-            item_img_path = "logos/" + brand.replace("'", "").lower() + ".png"
-            item_img = Image.open(item_img_path)
-            StaticImage(
-                frame,
-                item_img,
-                MEAL_OPTION_BG_COLOR,
-                0,
-                0,
-                rowspan=3,
-                height=MEAL_OPTION_HEIGHT * 0.8,
-            )
+            if brand:
+                item_img_path = "logos/" + brand.replace("'", "").lower() + ".png"
+                item_img = Image.open(item_img_path)
+                StaticImage(
+                    frame,
+                    item_img,
+                    MEAL_OPTION_BG_COLOR,
+                    0,
+                    0,
+                    rowspan=3,
+                    height=MEAL_OPTION_HEIGHT * 0.8,
+                )
 
             # Restaurant name
             IconAndText(

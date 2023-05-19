@@ -149,7 +149,13 @@ def create_locations_df(lat, lng, query, radius):
     df["Distance in Km"] = generate_distance_col(df, lat, lng)
     df.sort_values(by=["Distance in Km"])
     df = keep_only_closest_location(df)
-    # df["Name"] = clean_restaurant_name(df)
+
+    print(df)
+
+    # Places API will return locations outside the radius if there are non inside
+    radius_mask = df["Distance in Km"] < radius / 1000 * 2
+    df = df[radius_mask]
+
     return df
 
 
@@ -325,14 +331,20 @@ def get_cheat_meals(
     # Create the locations df
     rest_locs_df = create_locations_df(lat, lng, query, radius)
 
+    # If no restaurant results met the criteria, return empty
+    if len(rest_locs_df) == 0:
+        return []
+
     # Create the menu items df from nearby locations
     menu_items_df = get_restaurant_nutrition_data(rest_locs_df)
 
+    # If no meals are found in the data set, return empty
+    if len(menu_items_df) == 0:
+        return []
+
     # Add additional informationt to the menu items
     menu_items_df["cheat_score"] = create_cheat_score_column(menu_items_df)
-    print(rest_locs_df)
     rest_locs_df = remove_restaurants_without_meals(menu_items_df, rest_locs_df)
-    print(rest_locs_df)
     (
         menu_items_df["address"],
         menu_items_df["distance in km"],
@@ -346,7 +358,7 @@ def get_cheat_meals(
 
 
 if __name__ == "__main__":
-    cheat_meals_df = get_cheat_meals("68 hall avenue guelph on", 7.5, 5000)
+    cheat_meals_df = get_cheat_meals("2000 bd instustriel matagami quebec", 5, 5000)
 
 
 """ 
