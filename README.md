@@ -27,16 +27,15 @@ Check out this short demo of CheatScore in action:
 ## Screenshots
 
 Here are some screenshots of CheatScore in action:
-<img src="https://github.com/loganhartford/simple-schedule/blob/main/demo/screenshots/sc1.PNG?raw=tru" width="425"/> <img src="https://github.com/loganhartford/simple-schedule/blob/main/demo/screenshots/sc1.PNG?raw=tru" width="425"/>
 
-![alt-text-1](image1.png "title-1") ![alt-text-2](image2.png "title-2")
-
-| Solarized dark                                                                                    | Solarized Ocean                                                                                   |
-| ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| ![](https://github.com/loganhartford/simple-schedule/blob/main/demo/screenshots/sc1.PNG?raw=true) | ![](https://github.com/loganhartford/simple-schedule/blob/main/demo/screenshots/sc2.PNG?raw=true) |
-
-![Screenshot 1](https://github.com/loganhartford/simple-schedule/blob/main/demo/screenshots/sc1.PNG?raw=true)
-![Screenshot 2](https://github.com/loganhartford/simple-schedule/blob/main/demo/screenshots/sc2.PNG?raw=true)
+<div style="display:flex">
+     <div style="flex:1;padding-right:10px;">
+          <img src="https://github.com/loganhartford/simple-schedule/blob/main/demo/screenshots/sc1.PNG?raw=true" width="450"/>
+     </div>
+     <div style="flex:1;padding-left:10px;">
+          <img src="https://github.com/loganhartford/simple-schedule/blob/main/demo/screenshots/sc2.PNG?raw=true" width="450"/>
+     </div>
+</div>
 
 ## Setup
 
@@ -65,8 +64,16 @@ Alternatively, you can use the provided executable file, but ensure that the dep
 
 ## Contributing
 
-Contributions to FastFood Cravings App are welcome! If you encounter any issues or have ideas for enhancements, feel free to submit bug reports or feature requests through the project's GitHub page.
+Contributions are welcome! If you have any ideas, suggestions, or bug reports, please [create an issue](https://github.com/loganhartford/cheat_meals/issues) or submit a pull request.
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+## Contact
+
+For any questions or inquiries, feel free to reach out to the project maintainer:
+
+- Name: Logan Hartford
+- Email: laphartf@uwaterloo.ca
+- GitHub: [loganhartford](https://github.com/loganhartford)
