@@ -20,7 +20,7 @@ class App(ctk.CTk):
         self.geometry("1400x900")
         self.minsize(375, 667)  # iPhone SE height
         self.title("")
-        self.iconbitmap("icons/empty.ico")
+        self.iconbitmap("icons/logo.ico")
 
         # Data
         self.logo_png = Image.open("img/logo.png")
