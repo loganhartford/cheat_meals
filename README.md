@@ -27,15 +27,8 @@ Check out this short demo of CheatScore in action:
 ## Screenshots
 
 Here are some screenshots of CheatScore in action:
-
-<div style="display:flex">
-     <div style="flex:1;padding-right:10px;">
-          <img src="https://github.com/loganhartford/cheat_meals/blob/main/img/sc/sc1.PNG?raw=true" width="450"/>
-     </div>
-     <div style="flex:1;padding-left:10px;">
-          <img src="https://github.com/loganhartford/cheat_meals/blob/main/img/sc/sc2.PNG?raw=true" width="450"/>
-     </div>
-</div>
+![Screenshot 1](https://github.com/loganhartford/cheat_meals/blob/main/img/sc/sc1.PNG?raw=true)
+![Screenshot 2](https://github.com/loganhartford/cheat_meals/blob/main/img/sc/sc2.PNG?raw=true)
 
 ## Setup
 
