@@ -13,7 +13,7 @@ from matplotlib.figure import Figure
 import textwrap
 import webbrowser
 
-DEV_VERSTION = True  # Disalbes some app features for faster development
+DEV_VERSTION = False  # Disalbes some app features for faster development
 if DEV_VERSTION:
     import pandas as pd
 
@@ -180,8 +180,9 @@ class UserInputPanel(ctk.CTkFrame):
                 self.city_entry.get(),
                 self.province_entry.get(),
             ]
-
+            radius = self.radius_input.get()
             cheat_score = round(self.cheat_score.get(), 1)
+
             # Verify inputs
             for string in user_inputs:
                 if string == "":
@@ -190,7 +191,6 @@ class UserInputPanel(ctk.CTkFrame):
             if radius == "Within...":
                 ErrorMesage(self.parent, "Please select a search radius.")
                 return
-            radius = self.radius_input.get()
             radius = int(radius[: radius.index("km")]) * 1000
 
             # Create a string for the places api

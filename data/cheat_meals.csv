@@ -1,3 +1,12 @@
 restaurant,item,calories,total_fat,sat_fat,trans_fat,cholesterol,sodium,total_carb,fiber,sugar,protein,cheat_score,address,distance in km,score_delta
-McDonald's,20 piece Buttermilk Crispy Chicken Tenders,2430.0,141.0,24.0,2.0,475.0,6080.0,103.0,2.0,3.0,186.0,10.0,"105 Muskoka District Road 118 West, Bracebridge, ON P1L 1T5",53.8115509253722,0.0
-McDonald's,10 piece Sweet N' Spicy Honey BBQ Glazed Tenders,1600.0,66.0,10.0,0.0,265.0,4450.0,156.0,5.0,87.0,97.0,10.0,"105 Muskoka District Road 118 West, Bracebridge, ON P1L 1T5",53.8115509253722,0.0
+KFC,Big Eight ( 4pc smoky+ 4pc HC),1758.2,30.6,11.2,0.07,43.0,0.6,27.9,17.0,0.0,149.0,5.06,"Drew Hall, Guelph, ON N1G 2W1",4.61651831121556,0.05999999999999961
+KFC,6 Pc,1588.2,49.8,19.7,0.11,70.0,0.7,38.8,28.0,0.0,95.6,4.88,"Drew Hall, Guelph, ON N1G 2W1",4.61651831121556,0.1200000000000001
+KFC,"Mixed Zinger Doubles( 1 ch Zinger+1 Tandoori
+Zinger)",1562.9,29.5,8.7,0.03,31.0,0.4,62.8,12.0,5.75,54.0,4.56,"Drew Hall, Guelph, ON N1G 2W1",4.61651831121556,0.4400000000000004
+McDonald's,Crispy Bacon Smokehouse Chicken Sandwich,920.0,45.0,12.0,0.5,120.0,1980.0,81.0,4.0,18.0,46.0,4.46,"372 Stone Rd W, Guelph, ON N1G 4T8",4.570051469237914,0.54
+McDonald's,Double Bacon Smokehouse Burger,1130.0,67.0,27.0,3.0,220.0,1920.0,63.0,3.0,18.0,70.0,5.65,"372 Stone Rd W, Guelph, ON N1G 4T8",4.570051469237914,0.6500000000000004
+KFC,5 Pc Fried Leg,1440.0,41.3,16.5,0.08,56.0,0.5,42.6,22.0,0.0,89.3,4.19,"Drew Hall, Guelph, ON N1G 2W1",4.61651831121556,0.8099999999999996
+KFC,"Dips Bucket (12 Pc + 4
+Dips)",1434.5,24.9,10.9,0.03,33.0,0.6,27.6,13.0,10.53,108.1,4.18,"Drew Hall, Guelph, ON N1G 2W1",4.61651831121556,0.8200000000000003
+McDonald's,Single Bacon Smokehouse Burger,840.0,45.0,17.0,1.5,130.0,1580.0,62.0,2.0,18.0,46.0,4.13,"372 Stone Rd W, Guelph, ON N1G 4T8",4.570051469237914,0.8700000000000001
+McDonald's,10 piece Buttermilk Crispy Chicken Tenders,1210.0,70.0,12.0,1.0,240.0,3230.0,52.0,1.0,4.0,94.0,5.95,"372 Stone Rd W, Guelph, ON N1G 4T8",4.570051469237914,0.9500000000000002

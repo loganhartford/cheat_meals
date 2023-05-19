@@ -17,7 +17,7 @@ class App(ctk.CTk):
     def __init__(self):
         super().__init__(fg_color=BG_COLOR)
         self.title_bar_color(BG_COLOR)
-        self.geometry("1200x844")
+        self.geometry("1400x900")
         self.minsize(375, 667)  # iPhone SE height
         self.title("")
         self.iconbitmap("icons/empty.ico")
