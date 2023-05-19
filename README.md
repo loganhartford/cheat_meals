@@ -1,4 +1,4 @@
-![Banner Image](https://github.com/loganhartford/simple-schedule/blob/main/img/banner.png?raw=true)
+![Banner Image](https://github.com/loganhartford/cheat_meals/blob/main/img/banner/banner.png?raw=true)
 
 ## Overview
 
@@ -22,7 +22,7 @@ Additionally, the app provides a convenient button to open directions to the res
 
 Check out this short demo of CheatScore in action:
 
-![Demo](https://github.com/loganhartford/simple-schedule/blob/main/demo/video/demo.gif?raw=true)
+![Demo](https://github.com/loganhartford/cheat_meals/blob/main/demo/demo.gif?raw=true)
 
 ## Screenshots
 
@@ -30,10 +30,10 @@ Here are some screenshots of CheatScore in action:
 
 <div style="display:flex">
      <div style="flex:1;padding-right:10px;">
-          <img src="https://github.com/loganhartford/simple-schedule/blob/main/demo/screenshots/sc1.PNG?raw=true" width="450"/>
+          <img src="https://github.com/loganhartford/cheat_meals/blob/main/img/sc/sc1.PNG?raw=true" width="450"/>
      </div>
      <div style="flex:1;padding-left:10px;">
-          <img src="https://github.com/loganhartford/simple-schedule/blob/main/demo/screenshots/sc2.PNG?raw=true" width="450"/>
+          <img src="https://github.com/loganhartford/cheat_meals/blob/main/img/sc/sc2.PNG?raw=true" width="450"/>
      </div>
 </div>
 
