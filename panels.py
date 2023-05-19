@@ -12,7 +12,7 @@ from matplotlib.font_manager import FontProperties
 from matplotlib.figure import Figure
 import textwrap
 
-DEV_VERSTION = False  # Disalbes some app features for faster development
+DEV_VERSTION = True  # Disalbes some app features for faster development
 if DEV_VERSTION:
     import pandas as pd
 
@@ -179,8 +179,7 @@ class UserInputPanel(ctk.CTkFrame):
                 self.city_entry.get(),
                 self.province_entry.get(),
             ]
-            radius = self.radius_input.get()
-            radius = int(radius[: radius.index("km")]) * 1000
+
             cheat_score = round(self.cheat_score.get(), 1)
             # Verify inputs
             for string in user_inputs:
@@ -190,14 +189,16 @@ class UserInputPanel(ctk.CTkFrame):
             if radius == "Within...":
                 ErrorMesage(self.parent, "Please select a search radius.")
                 return
+            radius = self.radius_input.get()
+            radius = int(radius[: radius.index("km")]) * 1000
 
             # Create a string for the places api
             full_address = " ".join(user_inputs)
 
         # Get cheat meals
         if DEV_VERSTION:
-            # cheat_meals = pd.read_csv("cheat_meals.csv").values.tolist()
-            cheat_meals = []
+            cheat_meals = pd.read_csv("data/cheat_meals.csv").values.tolist()
+            # cheat_meals = []
         else:
             # Returns a nested list of meal options
             print("radius:", radius)
@@ -408,6 +409,7 @@ class DataDisplayPanel(ctk.CTkFrame):
         )
         self.fig_label_font = FontProperties(family="sans-serif", size=12)
         self.tiny_fig_label_font = FontProperties(family="sans-serif", size=8)
+        self.button_font = ctk.CTkFont(family=FAMILY, size=18, weight="bold")
 
         # Data
         self.meal_data = meal_data
@@ -484,14 +486,31 @@ class DataDisplayPanel(ctk.CTkFrame):
             col=0,
         )
 
+        name_button_frame = ctk.CTkFrame(master=self, fg_color="transparent")
+        name_button_frame.rowconfigure((0, 1), weight=1, uniform="c")
+        name_button_frame.columnconfigure(0, weight=1, uniform="c")
+
         # Item name
         DisplayTextBox(
-            parent=self,
+            parent=name_button_frame,
             text=item,
             font=self.item_font,
-            col=1,
-            row=1,
+            col=0,
+            row=0,
             colspan=1,
+        )
+        ctk.CTkButton(
+            master=name_button_frame,
+            text="Directions",
+            font=self.button_font,
+            text_color=BUTTON_TEXT_COLOR,
+            fg_color=BUTTON_COLOR,
+            hover_color=BUTTON_HOVER_COLOR,
+            command=self.button_click,
+        ).grid(column=0, row=1, sticky="nsew")
+        name_button_frame.grid(
+            row=1,
+            column=1,
         )
 
         # Macros table
@@ -576,6 +595,9 @@ class DataDisplayPanel(ctk.CTkFrame):
         # Return header to normal state
         self.title_label.configure(text="Meal Data")
         self.title_label.update_idletasks()
+
+    def button_click(self):
+        print("clicked")
 
     def create_macro_panel(
         self, cals, protein, carbs, total_fat, sugar, sodium, fiber, cholesterol
