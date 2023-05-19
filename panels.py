@@ -11,6 +11,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from matplotlib.font_manager import FontProperties
 from matplotlib.figure import Figure
 import textwrap
+import webbrowser
 
 DEV_VERSTION = True  # Disalbes some app features for faster development
 if DEV_VERSTION:
@@ -475,29 +476,19 @@ class DataDisplayPanel(ctk.CTkFrame):
             pass
 
         # Widgets
+        name_button_frame = ctk.CTkFrame(master=self, fg_color="transparent")
+        name_button_frame.rowconfigure(0, weight=3, uniform="c")
+        name_button_frame.rowconfigure(1, weight=1, uniform="c")
+        name_button_frame.columnconfigure(0, weight=3, uniform="c")
         # Brand imgage
         item_img_path = "logos/" + brand.replace("'", "").lower() + ".png"
         item_img = Image.open(item_img_path)
         StaticImage(
-            parent=self,
+            parent=name_button_frame,
             image=item_img,
             color=BG_COLOR,
-            row=1,
-            col=0,
-        )
-
-        name_button_frame = ctk.CTkFrame(master=self, fg_color="transparent")
-        name_button_frame.rowconfigure((0, 1), weight=1, uniform="c")
-        name_button_frame.columnconfigure(0, weight=1, uniform="c")
-
-        # Item name
-        DisplayTextBox(
-            parent=name_button_frame,
-            text=item,
-            font=self.item_font,
-            col=0,
             row=0,
-            colspan=1,
+            col=0,
         )
         ctk.CTkButton(
             master=name_button_frame,
@@ -506,12 +497,30 @@ class DataDisplayPanel(ctk.CTkFrame):
             text_color=BUTTON_TEXT_COLOR,
             fg_color=BUTTON_COLOR,
             hover_color=BUTTON_HOVER_COLOR,
-            command=self.button_click,
-        ).grid(column=0, row=1, sticky="nsew")
+            command=lambda: self.button_click(address),
+        ).grid(
+            column=0,
+            row=1,
+        )
         name_button_frame.grid(
             row=1,
-            column=1,
+            column=0,
         )
+
+        # Item name
+        item_frame = ctk.CTkFrame(master=self, fg_color="transparent")
+        item_frame.rowconfigure(0, weight=1, uniform="f")
+        item_frame.rowconfigure(1, weight=5, uniform="f")
+        item_frame.columnconfigure(0, weight=1, uniform="f")
+        DisplayTextBox(
+            parent=item_frame,
+            text=item,
+            font=self.item_font,
+            col=0,
+            row=1,
+            colspan=1,
+        )
+        item_frame.grid(column=1, row=1, sticky="nsew")
 
         # Macros table
         self.create_macro_panel(
@@ -596,8 +605,11 @@ class DataDisplayPanel(ctk.CTkFrame):
         self.title_label.configure(text="Meal Data")
         self.title_label.update_idletasks()
 
-    def button_click(self):
-        print("clicked")
+    def button_click(self, address):
+        base_url = "https://www.google.com/maps/dir/?api=1"
+        destination = address.replace(" ", "+")
+        url = f"{base_url}&destination={destination}"
+        webbrowser.open(url)
 
     def create_macro_panel(
         self, cals, protein, carbs, total_fat, sugar, sodium, fiber, cholesterol
