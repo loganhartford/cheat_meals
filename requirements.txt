@@ -1,3 +1,4 @@
+altgraph==0.17.3
 beautifulsoup4==4.12.2
 cachetools==5.3.0
 certifi==2022.12.7
@@ -28,16 +29,21 @@ matplotlib==3.7.1
 numpy==1.24.3
 packaging==23.1
 pandas==2.0.1
+pefile==2023.2.7
 pgeocode==0.4.0
 Pillow==9.5.0
 protobuf==4.23.0
+py2exe==0.13.0.0
 pyasn1==0.5.0
 pyasn1-modules==0.3.0
 pyfiglet==0.8.post1
+pyinstaller==5.11.0
+pyinstaller-hooks-contrib==2023.3
 pyparsing==3.0.9
 python-dateutil==2.8.2
 python-resize-image==1.1.20
 pytz==2023.3
+pywin32-ctypes==0.2.0
 ratelim==0.1.6
 requests==2.28.2
 rsa==4.9

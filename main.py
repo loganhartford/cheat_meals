@@ -3,8 +3,6 @@ from settings import *
 import customtkinter as ctk
 from versions import MobileVersion, DesktopVersion
 from PIL import Image
-from get_images import download_image
-from os import remove
 
 # For setting the title bar color on widnows
 try:
@@ -99,11 +97,3 @@ class App(ctk.CTk):
 
 if __name__ == "__main__":
     App()
-
-
-""" 
-To Do:
-- Test the app
-    - Put in 5 different locations and see if it breaks
-    - Test all the input verifications
-"""

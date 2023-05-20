@@ -1,7 +1,5 @@
 import customtkinter as ctk
 from settings import *
-from imgage_widgets import StaticImage
-from PIL import Image
 
 
 class IconAndText(ctk.CTkFrame):

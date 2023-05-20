@@ -1,10 +1,9 @@
 #! .\.venv\scripts\python.exe
 from constants import *
-import geocoder
 import requests
 import pandas as pd
 from math import sin, cos, sqrt, atan2, radians
-import pgeocode
+import sqlite3
 
 # For Dev only
 # pd.set_option('display.max_columns', None)
@@ -180,10 +179,15 @@ def get_restaurant_nutrition_data(restaurant_locations_df):
     }
 
     restaurant_names = clean_restaurant_name(restaurant_locations_df).values.tolist()
-    # restaurant_names = restaurant_locations_df["Name"].values.tolist()
 
-    # Using a local dataset for now, will make a db later
-    nutrition_df = pd.read_csv("data/fastfood.csv")
+    # Connect to the database
+    conn = sqlite3.connect("data/fastfood.db")
+    # Retrieve data from the table into a pandas DataFrame
+    select_data_query = "SELECT * FROM nutrition"
+    nutrition_df = pd.read_sql_query(select_data_query, conn)
+    # Close the database connection
+    conn.close()
+
     meal_items_df = nutrition_df[
         nutrition_df["restaurant"].str.lower().isin(restaurant_names)
     ]

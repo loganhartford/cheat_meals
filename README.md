@@ -50,7 +50,6 @@ Alternatively, you can use the provided executable file, but ensure that the dep
 
 ## Future Improvements
 
-- Database integration: Currently, the meal nutrition dataset is stored locally. Consider integrating a database to store and retrieve the nutrition information for improved scalability and flexibility.
 - Enhanced search functionality: Implement advanced search options, such as filtering by specific nutrients or dietary requirements.
 - User preferences and profiles: Allow users to save their preferences and create profiles to personalize the app experience.
 - User interface enhancements: Improve the user interface by adding more interactive features, better styling, and visualizations.
