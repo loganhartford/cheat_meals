@@ -352,7 +352,8 @@ def get_cheat_meals(
 
     cheat_meals_df = create_cheat_meals_df(cheat_score_target, menu_items_df)
 
-    cheat_meals_df.to_csv("data/cheat_meals.csv", index=False)
+    # For Dev
+    # cheat_meals_df.to_csv("data/cheat_meals.csv", index=False)
 
     return cheat_meals_df.values.tolist()
 
