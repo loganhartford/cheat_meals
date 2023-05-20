@@ -46,7 +46,7 @@ pip install -r requirements.txt
 python main.py
 ```
 
-Alternatively, you can use the provided executable file, but ensure that the dependencies are present in the same folder.
+Alternatively, you can use the provided executable file, but ensure that the dependencies are present in the same folder. The executable file will only work on windows operating systems.
 
 ## Future Improvements
 
