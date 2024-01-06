@@ -17,8 +17,9 @@ Check out this short demo of CheatScore in action:
 ## Screenshots
 
 Here are some screenshots of CheatScore in action:
-![Screenshot 1](https://github.com/loganhartford/cheat_meals/blob/main/img/sc/sc1.PNG?raw=true)
-![Screenshot 2](https://github.com/loganhartford/cheat_meals/blob/main/img/sc/sc2.PNG?raw=true)
+![Screenshot 1](https://res.cloudinary.com/dlfqn0wvp/image/upload/f_auto,q_auto/v1/portfolio-site/software/cheatscore/glbw2ruqi33io5oxfepd)
+
+![Screenshot 2](https://res.cloudinary.com/dlfqn0wvp/image/upload/f_auto,q_auto/v1/portfolio-site/software/cheatscore/ln5kdi8phcssdx1oahfd)
 
 ## Features
 
