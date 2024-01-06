@@ -12,7 +12,7 @@ Additionally, the app provides a convenient button to open directions to the res
 
 Check out this short demo of CheatScore in action:
 
-![Demo](https://github.com/loganhartford/cheat_meals/blob/main/demo/demo.gif?raw=true)
+![Demo](https://github.com/loganhartford/cheat_meals/blob/main/demo/faster_demo.gif?raw=true)
 
 ## Screenshots
 
